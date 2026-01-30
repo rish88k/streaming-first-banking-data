@@ -1,0 +1,16 @@
+{
+    "name": "banking-connector", 
+    "config": {
+      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "database.hostname": "postgres",    
+      "database.port": "5432",
+      "database.user": "postgres",
+      "database.password": "postgres",
+      "database.dbname": "banking_db",
+      "database.server.name": "banking",   
+      "table.include.list": "public.transactions", 
+      "plugin.name": "pgoutput",          
+      "slot.name": "debezium_slot"       
+    }
+  }
+

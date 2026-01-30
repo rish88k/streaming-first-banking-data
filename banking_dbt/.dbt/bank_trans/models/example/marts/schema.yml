@@ -1,0 +1,13 @@
+
+version: 2
+
+models:
+  - name: fct_transactions
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+          - not_null
+      - name: amount
+        data_tests:
+          - is_positive  -- Our custom macro test!

@@ -1,0 +1,20 @@
+[2026-01-29T14:15:29.302+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2026-01-29T14:15:29.304+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2026-01-29T14:15:29.305+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-01-29T14:15:29.305+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2026-01-29T14:15:29.309+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2026-01-29T17:11:22.368+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2026-01-29T17:11:22.369+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2026-01-29T17:11:22.369+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-01-29T17:11:22.370+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2026-01-29T17:11:22.372+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2026-01-29T17:11:37.154+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                               PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/load_banking_data.py                           1           0  0.33s           2026-01-29T17:11:25
+/opt/airflow/dags/transformation.py                              1           0  0.32s           2026-01-29T17:11:25
+================================================================================
+[2026-01-29T17:11:58.743+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15

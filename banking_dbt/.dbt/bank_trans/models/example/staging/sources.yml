@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw_banking
+    database: BANKING_DB
+    schema: BRONZE
+    loaded_at_field: ingested_at
+    tables:
+      - name: raw_transactions
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: raw_customers
+      - name: raw_accounts
