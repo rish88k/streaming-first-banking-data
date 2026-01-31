@@ -73,11 +73,13 @@ services:
       - "5434:5432"
     volumes:
       - ./docker/postgres/data:/var/lib/postgresql/data
+    networks:
+      - dev-net
     command: >
       postgres -c wal_level=logical
               -c max_wal_senders=10
               -c max_replication_slots=10
-            
+  
   minio:
     image: minio/minio:latest
     command: server /data --console-address ":9001"
@@ -175,7 +177,8 @@ services:
     container_name: generator
     depends_on:
       - postgres
-    restart: always
+    networks:
+      - dev-net
 
   streamlit-dashboard:
     build:
@@ -196,3 +199,6 @@ volumes:
 networks:
   default:
     name: banking-mds-net
+  dev-net:
+    driver: bridge
+  

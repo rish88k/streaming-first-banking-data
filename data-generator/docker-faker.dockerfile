@@ -4,6 +4,6 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir psycopg2-binary faker
 
-COPY faker.py .
+COPY seed_data.py .
 
-CMD [ "python", "faker.py" ]
+CMD [ "python", "seed_data.py" ]
