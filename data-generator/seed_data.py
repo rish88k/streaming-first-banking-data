@@ -9,7 +9,7 @@ fake = Faker()
 
 # Database Connection (matches your docker-compose mappings)
 db_config = {
-    "host": "postgres",
+    "host": "postgres-rdbms",
     "port": 5432, 
     "database": "banking",
     "user": "postgres",
@@ -68,6 +68,7 @@ def generate_data():
 
     # 3. Continuous Transaction Loop
     print("Starting real-time transaction simulation...")
+    counter=0;
     try:
         while True:
             acc_id = random.choice(account_ids)
@@ -81,12 +82,14 @@ def generate_data():
             
             conn.commit()
             print(f"Inserted {trans_type} of ${amount} for account {acc_id}")
+            counter=counter+1
             
             # Wait 2 seconds before next transaction to simulate real flow
             time.sleep(2)
             
+            
     except KeyboardInterrupt:
-        print("Simulation stopped.")
+        print(f"Simulation stopped. total transactions: {counter}")
     finally:
         cur.close()
         conn.close()
