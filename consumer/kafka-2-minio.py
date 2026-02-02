@@ -1,4 +1,4 @@
-from ensurepip import bootstrap
+from botocore.config import Config
 import boto3
 import json
 from confluent_kafka import Consumer
@@ -13,7 +13,7 @@ KAFKA_CONFIG = {
     'security.protocol': 'PLAINTEXT',
 }
 
-print(KAFKA_CONFIG)
+print(f"KAFKA_CONFIG: {KAFKA_CONFIG}");
 
 MINIO_CONFIG= {
     'endpoint_url': 'http://minio:9000',
@@ -22,10 +22,16 @@ MINIO_CONFIG= {
     'region_name': 'us-east-1'
 }
 
+print(f"MINIO_CONFIG: {MINIO_CONFIG}")
 
 consumer= Consumer(KAFKA_CONFIG)
-s3_client = boto3.client("s3", **MINIO_CONFIG)
+print("consumer is created, connected to kafka broker")
+
+s3_client = boto3.client("s3", **MINIO_CONFIG, config=Config(connect_timeout=5, read_timeout=5))
+print(f"s3_client is created, connected to minio server")
+
 bucket_name= 'banker_bucket'
+print(f"bucket_name is created, connected to minio server")
 
 
 def run_consumer():
