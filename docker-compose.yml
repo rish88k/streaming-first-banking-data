@@ -27,13 +27,14 @@ services:
       context: consumer/
       dockerfile: docker-consumer.dockerfile
     container_name: kafka-to-minio-consumer
-    restart: always
     depends_on: 
       - kafka
       - minio
     environment:
         - KAFKA_BOOTSTRAP_SERVERS=kafka:9092  
         - MINIO_ENDPOINT=http://minio:9000
+    networks:
+      - dev-net
 
 
   connect:
@@ -80,6 +81,8 @@ services:
       - "9001:9001"
     volumes:
       - ./docker/minio/data:/data
+    networks:
+      - dev-net
 
 
   airflow-webserver:
