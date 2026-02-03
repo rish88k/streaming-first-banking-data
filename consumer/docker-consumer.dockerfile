@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install --no-cache-dir boto3 confluent-kafka
 
+ENV PYTHONUNBUFFERED=1
+
 COPY kafka-2-minio.py .
 
-CMD [ "python", "kafka-2-minio.py" ]
+CMD [ "python", "-u", "kafka-2-minio.py" ]

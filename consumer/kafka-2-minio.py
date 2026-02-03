@@ -30,7 +30,7 @@ print("consumer is created, connected to kafka broker")
 s3_client = boto3.client("s3", **MINIO_CONFIG, config=Config(connect_timeout=5, read_timeout=5))
 print(f"s3_client is created, connected to minio server")
 
-bucket_name= 'banker_bucket'
+bucket_name='banker-bucket-de-project-dev'
 print(f"bucket_name is created, connected to minio server")
 
 
@@ -40,10 +40,17 @@ def run_consumer():
 
     try:
         s3_client.create_bucket(Bucket=bucket_name)
-    except Exception:
-        pass # Bucket likely already exists
+    except s3_client.exceptions.BucketAlreadyExists:
+        print("bucket already exists")
+        pass
+    except s3_client.exceptions.ClientError as e:
+        print(f"bucket client error: {e}")
+        pass
+    except Exception as e:
+        print(f"bucket creation error: {e}")
+        pass
 
-    consumer.subscribe(['banking_dev.public.acc_accounts'])
+    consumer.subscribe(['banking_dev.public.acc_transactions'])
 
     print('listening for events')
 
