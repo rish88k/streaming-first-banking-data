@@ -30,7 +30,7 @@ print("consumer is created, connected to kafka broker")
 s3_client = boto3.client("s3", **MINIO_CONFIG, config=Config(connect_timeout=5, read_timeout=5))
 print(f"s3_client is created, connected to minio server")
 
-bucket_name='banker-bucket-de-project-dev'
+bucket_name='banker-bucket-de-project-dev-1'
 print(f"bucket_name is created, connected to minio server")
 
 

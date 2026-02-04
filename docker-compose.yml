@@ -98,7 +98,8 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow-postgres:5432/${AIRFLOW_DB_NAME}
-      - AIRFLOW_CONN_SNOWFLAKE_CONN=snowflake://dbt:DBT123@IOZSZAF-KP59941/?warehouse=TRANSFORM_WH&database=TRANS&schema=BRONZE&role=TRANSFORM
+      - AIRFLOW_CONN_SNOWFLAKE_CONN=snowflake://{SNOWFLAKE_USER}:{SNOWFLAKE_PASSWORD}@{SNOWFLAKE_ACCOUNT}/{SNOWFLAKE_DB}/{SNOWFLAKE_SCHEMA}?warehouse=COMPUTE_WH&role=ACCOUNTADMIN
+
     volumes:
       - ./docker/dags:/opt/airflow/dags
       - ./docker/logs:/opt/airflow/logs
@@ -120,7 +121,7 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow-postgres:5432/${AIRFLOW_DB_NAME}
-      - AIRFLOW_CONN_SNOWFLAKE_CONN=snowflake://dbt:DBT123@IOZSZAF-KP59941/?warehouse=TRANSFORM_WH&database=TRANS&schema=BRONZE&role=TRANSFORM
+      - AIRFLOW_CONN_SNOWFLAKE_CONN=AIRFLOW_CONN_SNOWFLAKE_CONN=snowflake://{SNOWFLAKE_USER}:{SNOWFLAKE_PASSWORD}@{SNOWFLAKE_ACCOUNT}/{SNOWFLAKE_DB}/{SNOWFLAKE_SCHEMA}?warehouse=COMPUTE_WH&role=ACCOUNTADMIN
     volumes:
       - ./docker/dags:/opt/airflow/dags
       - ./docker/logs:/opt/airflow/logs
