@@ -34,6 +34,7 @@ def create_schema() :
     """
     cur.execute(create_table_customers_query)
     conn.commit()
+    print("created customers table")
 
     cur.execute("DROP TABLE IF EXISTS accounts CASCADE;")
     create_table_accounts_query="""
@@ -50,6 +51,7 @@ def create_schema() :
     """
     cur.execute(create_table_accounts_query)
     conn.commit()
+    print("created accounts table")
 
     cur.execute("DROP TABLE IF EXISTS acc_transactions CASCADE;")
     create_table_transactions_query="""
@@ -65,10 +67,11 @@ def create_schema() :
     """
     cur.execute(create_table_transactions_query)
     conn.commit()
+    print("created acc_transactions table")
     cur.close()
     conn.close()
 
-    print("finishes the fucking job, mate")
+    print("finished the fucking job, mate")
 
 if __name__ == "__main__":
     create_schema()

@@ -9,7 +9,7 @@ services:
     depends_on:
       - postgres-rdbms
     environment:
-      - KAFKA_BOOTSTRAP_SERVERS= {put uuid after generating it}
+      - KAFKA_CLUSTER_ID= 56e37764-2eb8-4968-b9ce-6a2e6974be83
       - BROKER_ID=1
       - KAFKA_LISTENERS=INTERNAL://:9092, EXTERNAL://:29092, CONTROLLER://:9093
       - KAFKA_ADVERTISED_LISTENERS= INTERNAL://kafka:9092, EXTERNAL://localhost:29092
@@ -98,14 +98,14 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow-postgres:5432/${AIRFLOW_DB_NAME}
-      - AIRFLOW_CONN_SNOWFLAKE_CONN=snowflake://{SNOWFLAKE_USER}:{SNOWFLAKE_PASSWORD}@{SNOWFLAKE_ACCOUNT}/{SNOWFLAKE_DB}/{SNOWFLAKE_SCHEMA}?warehouse=COMPUTE_WH&role=ACCOUNTADMIN
+      - AIRFLOW_CONN_SNOWFLAKE_DEFAULT=snowflake://${SNOWFLAKE_USER}:${SNOWFLAKE_PASSWORD}@${SNOWFLAKE_ACCOUNT}/${SNOWFLAKE_DB}/${SNOWFLAKE_SCHEMA}?warehouse=${SNOWFLAKE_WAREHOUSE}&role=${SNOWFLAKE_ROLE}
 
     volumes:
       - ./docker/dags:/opt/airflow/dags
       - ./docker/logs:/opt/airflow/logs
       - ./docker/plugins:/opt/airflow/plugins
-      - ./banking_dbt/.dbt:/opt/airflow/banking_dbt
-      - ./banking_dbt/.dbt:/home/airflow/.dbt
+      - ./banking_dbt:/opt/airflow/banking_dbt
+      - ./banking_dbt:/home/airflow/.dbt
     ports:
       - "8080:8080"
     command: webserver
@@ -121,13 +121,13 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow-postgres:5432/${AIRFLOW_DB_NAME}
-      - AIRFLOW_CONN_SNOWFLAKE_CONN=AIRFLOW_CONN_SNOWFLAKE_CONN=snowflake://{SNOWFLAKE_USER}:{SNOWFLAKE_PASSWORD}@{SNOWFLAKE_ACCOUNT}/{SNOWFLAKE_DB}/{SNOWFLAKE_SCHEMA}?warehouse=COMPUTE_WH&role=ACCOUNTADMIN
+      - AIRFLOW_CONN_SNOWFLAKE_DEFAULT=snowflake://${SNOWFLAKE_USER}:${SNOWFLAKE_PASSWORD}@${SNOWFLAKE_ACCOUNT}/${SNOWFLAKE_DB}/${SNOWFLAKE_SCHEMA}?warehouse=${SNOWFLAKE_WAREHOUSE}&role=${SNOWFLAKE_ROLE}
     volumes:
       - ./docker/dags:/opt/airflow/dags
       - ./docker/logs:/opt/airflow/logs
       - ./docker/plugins:/opt/airflow/plugins
       - ./banking_dbt:/opt/airflow/banking_dbt
-      - ./banking_dbt/.dbt/bank_trans:/home/airflow/.dbt
+      - ./banking_dbt:/home/airflow/.dbt
     command: scheduler
 
 

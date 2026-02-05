@@ -3,9 +3,9 @@ import gzip
 import time
 from botocore.config import Config
 import boto3
-import json
 from confluent_kafka import Consumer
-from datetime import datetime
+from datetime import datetime, UTC
+
 
 
 
@@ -20,10 +20,9 @@ KAFKA_CONFIG = {
 print(f"KAFKA_CONFIG: {KAFKA_CONFIG}");
 
 MINIO_CONFIG= {
-    'endpoint_url': 'http://minio:9000',
-    'aws_access_key_id': 'admin',
-    'aws_secret_access_key': 'admin123',
-    'region_name': 'us-east-1'
+    'aws_access_key_id': '${KEY}',
+    'aws_secret_access_key': '${KEY_ID}',
+    'region_name': 'ap-southeast-2'
 }
 
 print(f"MINIO_CONFIG: {MINIO_CONFIG}")
@@ -34,7 +33,7 @@ print("consumer is created, connected to kafka broker")
 s3_client = boto3.client("s3", **MINIO_CONFIG, config=Config(connect_timeout=5, read_timeout=5))
 print(f"s3_client is created, connected to minio server")
 
-bucket_name='banker-bucket-de-project-dev-1'
+bucket_name='de-project-banking-pipeline-dev-1'
 print(f"bucket_name is created, connected to minio server")
 
 
@@ -43,7 +42,7 @@ print(f"bucket_name is created, connected to minio server")
 # ----------------------------
 # Micro-batch config
 # ----------------------------
-BATCH_SIZE = 5000          # records
+BATCH_SIZE = 20          # records
 FLUSH_INTERVAL = 10        # seconds
 batch = []
 last_flush = time.time()
@@ -57,21 +56,18 @@ def flush_batch():
     if not batch:
         return
 
-    filename = (
-        f"transactions/"
-        f"batch_{datetime.strftime('%Y%m%d_%H%M%S_%f')}_"
-        f"{datetime.datetime.now(datetime.UTC)}.json.gz"
-    )
+    # Now you can call the class directly
+    timestamp = datetime.now(UTC).strftime('%Y%m%d_%H%M%S')
+    filename = f"transactions/batch_{timestamp}_{time.time_ns()}.json.gz"
 
     payload = "\n".join(json.dumps(r) for r in batch).encode("utf-8")
     compressed = gzip.compress(payload)
 
     s3_client.put_object(
-        bucket_name,
-        filename,
-        data=compressed,
-        length=len(compressed),
-        content_type="application/gzip"
+        Bucket=bucket_name,
+        Key=filename,
+        Body=compressed,
+        ContentType="application/gzip"
     )
 
     print(f"Flushed {len(batch)} records → {filename}")
@@ -83,12 +79,27 @@ def flush_batch():
 # Kafka consumer loop
 # ----------------------------
 def run_consumer():
+    
+    response = s3_client.list_buckets()
+    print(response["Buckets"])
+
+    try:
+        s3_client.create_bucket(Bucket=bucket_name)
+    except s3_client.exceptions.BucketAlreadyExists:
+        print("bucket already exists")
+        pass
+    except s3_client.exceptions.ClientError as e:
+        print(f"bucket client error: {e}")
+        pass
+    except Exception as e:
+        print(f"bucket creation error: {e}")
+        pass
     consumer.subscribe(['banking_dev.public.acc_transactions'])
     print("Listening for events...")
 
     try:
         while True:
-            msg = consumer.poll(100.0)
+            msg = consumer.poll(1.0)
 
             if msg is None:
                 # time-based flush
