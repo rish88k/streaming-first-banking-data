@@ -2,5 +2,7 @@ keys_/*
 
 aws.env
 
-secrets/*aws.env
+secrets/*
+
+
 
