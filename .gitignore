@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 keys_/*
 
 aws.env
 
 secrets/*aws.env
-=======
->>>>>>> parent of eddcc58 (airflow integrated, S3 and Snowflake connected)
+
