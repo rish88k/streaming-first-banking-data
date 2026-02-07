@@ -85,6 +85,7 @@ def generate_data():
             counter=counter+1
             
             # Wait 2 seconds before next transaction to simulate real flow
+            print(f"transaction counter: {counter}")
             time.sleep(2)
             
             

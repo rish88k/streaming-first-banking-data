@@ -1,42 +1,65 @@
-from ensurepip import bootstrap
+from botocore.config import Config
 import boto3
 import json
 from confluent_kafka import Consumer
 from datetime import datetime
 
 
-KAFKA_CONFIG= {
-    'bootstrap.servers': 'kafka:29092',
-    'group.id': 'minio-consumer-group',
-    'auto.offset.reset': 'earliest'
+KAFKA_CONFIG = {
+    'bootstrap.servers': 'kafka:9092',
+    'group.id': 'minio-sink-consumer',
+    'auto.offset.reset': 'earliest',
+    'enable.auto.commit': True,
+    'security.protocol': 'PLAINTEXT',
 }
+
+print(f"KAFKA_CONFIG: {KAFKA_CONFIG}");
 
 MINIO_CONFIG= {
     'endpoint_url': 'http://minio:9000',
     'aws_access_key_id': 'admin',
-    'aws_secret_access_key': 'password',
+    'aws_secret_access_key': 'admin123',
     'region_name': 'us-east-1'
 }
 
+print(f"MINIO_CONFIG: {MINIO_CONFIG}")
 
 consumer= Consumer(KAFKA_CONFIG)
-s3_client= boto3.client('s3', **MINIO_CONFIG)
-bucket_name= 'banker_bucket'
+print("consumer is created, connected to kafka broker")
+
+s3_client = boto3.client("s3", **MINIO_CONFIG, config=Config(connect_timeout=5, read_timeout=5))
+print(f"s3_client is created, connected to minio server")
+
+bucket_name='banker-bucket-de-project-dev-1'
+print(f"bucket_name is created, connected to minio server")
 
 
 def run_consumer():
+    response = s3_client.list_buckets()
+    print(response["Buckets"])
+
     try:
         s3_client.create_bucket(Bucket=bucket_name)
-    except Exception:
-        pass # Bucket likely already exists
+    except s3_client.exceptions.BucketAlreadyExists:
+        print("bucket already exists")
+        pass
+    except s3_client.exceptions.ClientError as e:
+        print(f"bucket client error: {e}")
+        pass
+    except Exception as e:
+        print(f"bucket creation error: {e}")
+        pass
 
-    consumer.subscribe(['banking.banking.transactions'])
+    consumer.subscribe(['banking_dev.public.acc_transactions'])
 
     print('listening for events')
 
     try:
         while True:
             msg= consumer.poll(100.0)
+            if msg is None:
+                continue
+
             if msg.error():
                 print(f"consumer error : {msg.error()}")
                 continue
