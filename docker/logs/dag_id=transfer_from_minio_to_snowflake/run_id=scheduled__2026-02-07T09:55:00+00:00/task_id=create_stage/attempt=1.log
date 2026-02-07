@@ -1,0 +1,32 @@
+[2026-02-07T09:56:08.387+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-07T09:56:08.402+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake.create_stage scheduled__2026-02-07T09:55:00+00:00 [queued]>
+[2026-02-07T09:56:08.406+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake.create_stage scheduled__2026-02-07T09:55:00+00:00 [queued]>
+[2026-02-07T09:56:08.406+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-07T09:56:08.411+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): create_stage> on 2026-02-07 09:55:00+00:00
+[2026-02-07T09:56:08.415+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=651) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-07T09:56:08.416+0000] {standard_task_runner.py:64} INFO - Started process 663 to run task
+[2026-02-07T09:56:08.416+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'transfer_from_minio_to_snowflake', 'create_stage', 'scheduled__2026-02-07T09:55:00+00:00', '--job-id', '130', '--raw', '--subdir', 'DAGS_FOLDER/transfer.py', '--cfg-path', '/tmp/tmp3hzqavr9']
+[2026-02-07T09:56:08.420+0000] {standard_task_runner.py:91} INFO - Job 130: Subtask create_stage
+[2026-02-07T09:56:08.568+0000] {task_command.py:426} INFO - Running <TaskInstance: transfer_from_minio_to_snowflake.create_stage scheduled__2026-02-07T09:55:00+00:00 [running]> on host 83f212180a9d
+[2026-02-07T09:56:08.820+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='transfer_from_minio_to_snowflake' AIRFLOW_CTX_TASK_ID='create_stage' AIRFLOW_CTX_EXECUTION_DATE='2026-02-07T09:55:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-07T09:55:00+00:00'
+[2026-02-07T09:56:08.820+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-07T09:56:08.821+0000] {sql.py:282} INFO - Executing:  CREATE STAGE IF NOT EXISTS incoming  
+                 URL = 's3://de-project-banking-pipeline-dev-1/transactions'
+                 STORAGE_INTEGRATION = my_s3_integration
+                 FILE_FORMAT = (TYPE = 'JSON'); 
+[2026-02-07T09:56:08.827+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-02-07T09:56:08.863+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-02-07T09:56:08.903+0000] {connection.py:611} INFO - Snowflake Connector for Python Version: 4.2.0, Python Version: 3.12.4, Platform: Linux-6.12.67-linuxkit-aarch64-with-glibc2.36
+[2026-02-07T09:56:08.903+0000] {connection.py:1695} INFO - Connecting to GLOBAL Snowflake domain
+[2026-02-07T09:56:09.369+0000] {sql.py:495} INFO - Running statement: CREATE STAGE IF NOT EXISTS incoming  
+                 URL = 's3://de-project-banking-pipeline-dev-1/transactions'
+                 STORAGE_INTEGRATION = my_s3_integration
+                 FILE_FORMAT = (TYPE = 'JSON');, parameters: None
+[2026-02-07T09:56:09.474+0000] {sql.py:504} INFO - Rows affected: 1
+[2026-02-07T09:56:09.475+0000] {snowflake.py:422} INFO - Rows affected: 1
+[2026-02-07T09:56:09.475+0000] {snowflake.py:423} INFO - Snowflake query id: 01c24034-0001-8da5-000c-39020001f11e
+[2026-02-07T09:56:09.628+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-07T09:56:09.662+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=transfer_from_minio_to_snowflake, task_id=create_stage, run_id=scheduled__2026-02-07T09:55:00+00:00, execution_date=20260207T095500, start_date=20260207T095608, end_date=20260207T095609
+[2026-02-07T09:56:09.694+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-02-07T09:56:09.716+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-07T09:56:09.717+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,7 +1,9 @@
 import json
 import gzip
 import time
+from botocore import regions
 from botocore.config import Config
+from botocore.exceptions import ClientError
 import boto3
 from confluent_kafka import Consumer
 from datetime import datetime, UTC
@@ -20,9 +22,8 @@ KAFKA_CONFIG = {
 print(f"KAFKA_CONFIG: {KAFKA_CONFIG}");
 
 MINIO_CONFIG= {
-    'aws_access_key_id': '${KEY}',
-    'aws_secret_access_key': '${KEY_ID}',
-    'region_name': 'ap-southeast-2'
+    'aws_access_key_id': '',
+    'aws_secret_access_key': ''
 }
 
 print(f"MINIO_CONFIG: {MINIO_CONFIG}")
@@ -30,7 +31,7 @@ print(f"MINIO_CONFIG: {MINIO_CONFIG}")
 consumer= Consumer(KAFKA_CONFIG)
 print("consumer is created, connected to kafka broker")
 
-s3_client = boto3.client("s3", **MINIO_CONFIG, config=Config(connect_timeout=5, read_timeout=5))
+s3_client = boto3.client("s3", **MINIO_CONFIG, region_name='ap-southeast-2', config=Config(connect_timeout=5, read_timeout=5))
 print(f"s3_client is created, connected to minio server")
 
 bucket_name='de-project-banking-pipeline-dev-1'
@@ -81,10 +82,10 @@ def flush_batch():
 def run_consumer():
     
     response = s3_client.list_buckets()
-    print(response["Buckets"])
+    print(response)
 
     try:
-        s3_client.create_bucket(Bucket=bucket_name)
+        s3_client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration={"LocationConstraint": "ap-southeast-2"})
     except s3_client.exceptions.BucketAlreadyExists:
         print("bucket already exists")
         pass
@@ -105,6 +106,7 @@ def run_consumer():
                 # time-based flush
                 if time.time() - last_flush >= FLUSH_INTERVAL:
                     flush_batch()
+                    num=0;
                 continue
 
             if msg.error():
@@ -113,6 +115,8 @@ def run_consumer():
 
             record = json.loads(msg.value().decode("utf-8"))
             batch.append(record)
+            num=num+1
+            print(f"records appended: {num}")
 
             # size-based flush
             if len(batch) >= BATCH_SIZE:

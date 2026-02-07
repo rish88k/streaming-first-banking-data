@@ -70,21 +70,6 @@ services:
               -c max_wal_senders=4
               -c max_replication_slots=4
   
-  minio:
-    image: minio/minio:latest
-    command: server /data --console-address ":9001"
-    environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
-      MINIO_FS_MIN_FREE: 200MB
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    volumes:
-      - ./docker/minion/data:/data
-    networks:
-      - dev-net
-
 
   airflow-webserver:
     build:
@@ -93,19 +78,17 @@ services:
     container_name: airflow-webserver
     restart: always
     depends_on:
-      - airflow-scheduler
       - airflow-postgres
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@airflow-postgres:5432/${AIRFLOW_DB_NAME}
       - AIRFLOW_CONN_SNOWFLAKE_DEFAULT=snowflake://${SNOWFLAKE_USER}:${SNOWFLAKE_PASSWORD}@${SNOWFLAKE_ACCOUNT}/${SNOWFLAKE_DB}/${SNOWFLAKE_SCHEMA}?warehouse=${SNOWFLAKE_WAREHOUSE}&role=${SNOWFLAKE_ROLE}
-
+      - AIRFLOW__CORE__TEST_CONNECTION=Enabled
     volumes:
       - ./docker/dags:/opt/airflow/dags
       - ./docker/logs:/opt/airflow/logs
       - ./docker/plugins:/opt/airflow/plugins
-      - ./banking_dbt:/opt/airflow/banking_dbt
-      - ./banking_dbt:/home/airflow/.dbt
+      - ./secrets:/opt/airflow/secrets
     ports:
       - "8080:8080"
     command: webserver
@@ -126,8 +109,7 @@ services:
       - ./docker/dags:/opt/airflow/dags
       - ./docker/logs:/opt/airflow/logs
       - ./docker/plugins:/opt/airflow/plugins
-      - ./banking_dbt:/opt/airflow/banking_dbt
-      - ./banking_dbt:/home/airflow/.dbt
+      - ./secrets:/opt/airflow/secrets
     command: scheduler
 
 

@@ -8,8 +8,8 @@ from airflow.providers.snowflake.transfers.copy_into_snowflake import CopyFromEx
 
 @dag(
     dag_id=f"transfer_from_minio_to_snowflake",
-    start_date=datetime(2026, 1, 1),
-    schedule="@daily",
+    start_date=datetime(2026, 2, 7),
+    schedule="*/1 * * * *",
     tags=["transfer"],
     catchup=False,
     default_args={
@@ -22,7 +22,7 @@ def transfer_data():
 
     create_bronze_table= SQLExecuteQueryOperator(
         task_id="create_bronze",
-        conn_id= "SNOWFLAKE_DEFAULT",
+        conn_id= "warehouse_id",
         sql= """ CREATE TABLE IF NOT EXISTS BRONZE (
                     raw_json VARIANT,
                     inserted_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP());
@@ -31,16 +31,16 @@ def transfer_data():
 
     create_stage= SQLExecuteQueryOperator(
         task_id="create_stage",
-        conn_id= "SNOWFLAKE_DEFAULT",
-        sql= """ CREATE STAGE incoming  
+        conn_id= "warehouse_id",
+        sql= """ CREATE STAGE IF NOT EXISTS incoming  
                  URL = 's3://de-project-banking-pipeline-dev-1/transactions'
                  STORAGE_INTEGRATION = my_s3_integration
-                 FILE_FORMAT = (TYPE = 'JSON' STRIP_OUTER_ARRAY = TRUE); """
+                 FILE_FORMAT = (TYPE = 'JSON'); """
          )
     
     load_json= CopyFromExternalStageToSnowflakeOperator(
         task_id="copy",
-        snowflake_conn_id= "SNOWFLAKE_DEFAULT",
+        snowflake_conn_id= "warehouse_id",
         stage="incoming",
         table="BRONZE",
         file_format="(TYPE= 'JSON')",
