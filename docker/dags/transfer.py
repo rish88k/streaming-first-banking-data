@@ -21,9 +21,9 @@ from airflow.providers.snowflake.transfers.copy_into_snowflake import CopyFromEx
 def transfer_data():
 
     create_bronze_table= SQLExecuteQueryOperator(
-        task_id="create_bronze",
+        task_id="create_raw",
         conn_id= "warehouse_id",
-        sql= """ CREATE TABLE IF NOT EXISTS BRONZE (
+        sql= """ CREATE TABLE IF NOT EXISTS RAW (
                     raw_json VARIANT,
                     inserted_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP());
                   """
@@ -42,7 +42,7 @@ def transfer_data():
         task_id="copy",
         snowflake_conn_id= "warehouse_id",
         stage="incoming",
-        table="BRONZE",
+        table="RAW",
         file_format="(TYPE= 'JSON')",
         copy_options="ON_ERROR= 'continue'"
     )

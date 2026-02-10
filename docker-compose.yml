@@ -29,7 +29,6 @@ services:
     container_name: kafka-to-minio-consumer
     depends_on: 
       - kafka
-      - minio
     environment:
         - KAFKA_BOOTSTRAP_SERVERS=kafka:9092  
         - MINIO_ENDPOINT=http://minio:9000
@@ -163,10 +162,7 @@ services:
     container_name: streamlit_ui
     ports:
       - "8501:8501"
-    environment:
-      - SNOWFLAKE_USER=${SNOWFLAKE_USER}
-      - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}
-      - SNOWFLAKE_ACCOUNT=${SNOWFLAKE_ACCOUNT}
+
 
 
 volumes:

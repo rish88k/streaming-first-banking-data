@@ -1,0 +1,31 @@
+[2026-02-08T19:33:10.362+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-08T19:33:10.376+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake.copy scheduled__2026-02-08T19:32:00+00:00 [queued]>
+[2026-02-08T19:33:10.379+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake.copy scheduled__2026-02-08T19:32:00+00:00 [queued]>
+[2026-02-08T19:33:10.380+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-02-08T19:33:10.384+0000] {taskinstance.py:2330} INFO - Executing <Task(CopyFromExternalStageToSnowflakeOperator): copy> on 2026-02-08 19:32:00+00:00
+[2026-02-08T19:33:10.388+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=13038) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-08T19:33:10.389+0000] {standard_task_runner.py:64} INFO - Started process 13050 to run task
+[2026-02-08T19:33:10.388+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'transfer_from_minio_to_snowflake', 'copy', 'scheduled__2026-02-08T19:32:00+00:00', '--job-id', '819', '--raw', '--subdir', 'DAGS_FOLDER/transfer.py', '--cfg-path', '/tmp/tmpgshwdjvl']
+[2026-02-08T19:33:10.390+0000] {standard_task_runner.py:91} INFO - Job 819: Subtask copy
+[2026-02-08T19:33:10.414+0000] {task_command.py:426} INFO - Running <TaskInstance: transfer_from_minio_to_snowflake.copy scheduled__2026-02-08T19:32:00+00:00 [running]> on host 83f212180a9d
+[2026-02-08T19:33:10.538+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='transfer_from_minio_to_snowflake' AIRFLOW_CTX_TASK_ID='copy' AIRFLOW_CTX_EXECUTION_DATE='2026-02-08T19:32:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-08T19:32:00+00:00'
+[2026-02-08T19:33:10.539+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-08T19:33:10.539+0000] {copy_into_snowflake.py:142} INFO - Executing COPY command...
+[2026-02-08T19:33:10.544+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-02-08T19:33:10.581+0000] {connection.py:611} INFO - Snowflake Connector for Python Version: 4.2.0, Python Version: 3.12.4, Platform: Linux-6.12.67-linuxkit-aarch64-with-glibc2.36
+[2026-02-08T19:33:10.581+0000] {connection.py:1695} INFO - Connecting to GLOBAL Snowflake domain
+[2026-02-08T19:33:11.039+0000] {sql.py:495} INFO - Running statement: COPY INTO BRONZE
+             FROM  @incoming/
+        
+        
+        FILE_FORMAT=(TYPE= 'JSON')
+        ON_ERROR= 'continue', parameters: None
+[2026-02-08T19:33:11.957+0000] {sql.py:504} INFO - Rows affected: 1
+[2026-02-08T19:33:11.958+0000] {snowflake.py:422} INFO - Rows affected: 1
+[2026-02-08T19:33:11.959+0000] {snowflake.py:423} INFO - Snowflake query id: 01c24815-0001-8dc2-000c-39020002680a
+[2026-02-08T19:33:12.047+0000] {copy_into_snowflake.py:149} INFO - COPY command completed
+[2026-02-08T19:33:12.049+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-08T19:33:12.065+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=transfer_from_minio_to_snowflake, task_id=copy, run_id=scheduled__2026-02-08T19:32:00+00:00, execution_date=20260208T193200, start_date=20260208T193310, end_date=20260208T193312
+[2026-02-08T19:33:12.115+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-02-08T19:33:12.133+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-08T19:33:12.135+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
