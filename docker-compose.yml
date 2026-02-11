@@ -162,6 +162,9 @@ services:
     container_name: streamlit_ui
     ports:
       - "8501:8501"
+    volumes:
+      - ./keys_/streamlit_key:/app/keys_
+      - ./streamlit/.streamlit:/app/.streamlit
 
 
 
