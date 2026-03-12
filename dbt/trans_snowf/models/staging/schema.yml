@@ -3,12 +3,12 @@ version: 2
 
 sources:
   - name: raw_data
-    database: BANKER
+    database: BANKING
     schema: PUBLIC
     tables: 
-      - name: raw_trans
-      - name: raw_acc
-      - name: raw_cust
+      - name: RAW_TRANSACTIONS
+      - name: RAW_ACCOUNTS
+      - name: RAW_CUSTOMERS
 
 
 
