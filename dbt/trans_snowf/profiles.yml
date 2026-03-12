@@ -1,0 +1,91 @@
+bank_trans:
+  outputs:
+    dev:
+      account: IOZSZAF-KP59941
+      database: TRANS
+      password: DBT123
+      role: DEVEL
+      schema: RAW
+      threads: 1
+      type: snowflake
+      user: devil
+      warehouse: BANK
+  target: dev
+banker:
+  outputs:
+    dev:
+      account: IOZSZAF-KP59941
+      database: banking
+      password: '12345'
+      role: admin
+      schema: raw
+      threads: 1
+      type: snowflake
+      user: rish88k
+      warehouse: banker
+  target: dev
+banker_dbt:
+  outputs:
+    dev:
+      account: IOZSZAF-KP59941
+      database: BANKER
+      password: risheek
+      role: admin
+      schema: RAW
+      threads: 1
+      type: snowflake
+      user: 'RISH888K '
+      warehouse: BANKING_DB
+  target: dev
+dbt_project:
+  outputs:
+    dev:
+      account: IOZSZAF-KP59941
+      database: TRANS
+      password: DBT123
+      role: DEVEL
+      schema: RAW
+      threads: 1
+      type: snowflake
+      user: devil
+      warehouse: BANK
+  target: dev
+netflix_dbt:
+  outputs:
+    dev:
+      account: IOZSZAF-KP59941
+      database: MOVIELENS
+      password: dbt-123
+      role: TRANSFORM
+      schema: RAW
+      threads: 1
+      type: snowflake
+      user: dbt
+      warehouse: COMPUTE_WH
+  target: dev
+orche:
+  outputs:
+    dev:
+      account: BBMCDSP-CT02489
+      database: BANKING
+      private_key_path: /Users/rish88k/data_analysis/de_project/keys_/dbt_user_latest/rsa_key.p8
+      role: dbtuser
+      schema: RAW
+      threads: 1
+      type: snowflake
+      user: plumber
+      warehouse: COMPUTE_WH
+  target: dev
+trans_snowf:
+  outputs:
+    dev:
+      account: BBMCDSP-CT02489
+      database: BANKING
+      private_key_path: /Users/rish88k/data_analysis/de_project/keys_/dbt_user_latest/rsa_key.p8
+      role: dbtuser
+      schema: PUBLIC
+      threads: 1
+      type: snowflake
+      user: plumber
+      warehouse: COMPUTE_WH
+  target: dev
