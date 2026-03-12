@@ -122,7 +122,7 @@ services:
       POSTGRES_PASSWORD: ${AIRFLOW_DB_PASSWORD}
       POSTGRES_DB: ${AIRFLOW_DB_NAME}
     volumes:
-      - airflow_postgres_data:/var/lib/postgresql/data
+      - airflow_postgres_data_2:/var/lib/postgresql/data
     ports:
       - "5433:5432"  
 
@@ -168,8 +168,9 @@ services:
 
 
 
+
 volumes:
-  airflow_postgres_data:
+  airflow_postgres_data_2:
   postgres_data:
 networks:
   default:

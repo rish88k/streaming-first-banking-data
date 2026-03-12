@@ -34,7 +34,7 @@ print("consumer is created, connected to kafka broker")
 s3_client = boto3.client("s3", **MINIO_CONFIG, region_name='ap-southeast-2', config=Config(connect_timeout=5, read_timeout=5))
 print(f"s3_client is created, connected to minio server")
 
-bucket_name='de-project-banking-pipeline-dev-1'
+bucket_name='de-project-banking-pipeline-dev-2'
 print(f"bucket_name is created, connected to minio server")
 
 
@@ -101,6 +101,7 @@ def run_consumer():
     try:
         while True:
             msg = consumer.poll(1.0)
+            num=0;
 
             if msg is None:
                 # time-based flush

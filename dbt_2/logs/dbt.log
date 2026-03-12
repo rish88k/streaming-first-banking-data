@@ -1,0 +1,417 @@
+[0m11:38:26.954882 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ae143a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bf034c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bf02e00>]}
+
+
+============================== 11:38:26.958065 | 019b8ebb-3b14-4203-a51a-1b7b30fd184d ==============================
+[0m11:38:26.958065 [info ] [MainThread]: Running with dbt=1.11.2
+[0m11:38:26.958444 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'use_colors': 'True', 'empty': 'None', 'static_parser': 'True', 'no_print': 'None', 'warn_error': 'None', 'indirect_selection': 'eager', 'log_path': 'logs', 'quiet': 'False', 'write_json': 'True', 'version_check': 'True', 'partial_parse': 'True', 'introspect': 'True', 'profiles_dir': '/Users/rish88k/.dbt', 'debug': 'False', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init', 'cache_selected_only': 'False', 'log_format': 'default', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False'}
+[0m11:38:41.472949 [debug] [MainThread]: Starter project path: /Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m11:38:41.486845 [info ] [MainThread]: 
+Your new dbt project "handl" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:38:41.487649 [info ] [MainThread]: Setting up your profile.
+[0m11:38:41.500017 [error] [MainThread]: Encountered an error:
+while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 78, column 102
+[0m11:38:41.507275 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/main.py", line 483, in init
+    results = task.run()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 248, in setup_profile
+    if not self.check_if_can_write_profile(profile_name=profile_name):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 209, in check_if_can_write_profile
+    profiles = yaml.safe_load(f) or {}
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 258, in fetch_more_tokens
+    raise ScannerError("while scanning for the next token", None,
+yaml.scanner.ScannerError: while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 78, column 102
+
+[0m11:38:41.526049 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 14.62688, "process_in_blocks": "0", "process_kernel_time": 0.157243, "process_mem_max_rss": "105365504", "process_out_blocks": "0", "process_user_time": 0.8728}
+[0m11:38:41.526867 [debug] [MainThread]: Command `dbt init` failed at 11:38:41.526698 after 14.63 seconds
+[0m11:38:41.527661 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ae143a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfb4040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfb41f0>]}
+[0m11:38:41.528189 [debug] [MainThread]: Flushing usage events
+[0m11:38:42.457194 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:52:56.485346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108df83d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ee74c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ee6e00>]}
+
+
+============================== 11:52:56.488748 | ea88f899-41d2-46a1-96a7-27db2579079b ==============================
+[0m11:52:56.488748 [info ] [MainThread]: Running with dbt=1.11.2
+[0m11:52:56.489136 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'log_path': 'logs', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'profiles_dir': '/Users/rish88k/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'version_check': 'True', 'indirect_selection': 'eager', 'fail_fast': 'False', 'empty': 'None', 'invocation_command': 'dbt init', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'log_cache_events': 'False', 'printer_width': '80', 'no_print': 'None', 'partial_parse': 'True', 'write_json': 'True'}
+[0m11:53:03.069744 [debug] [MainThread]: Starter project path: /Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m11:53:03.076086 [info ] [MainThread]: 
+Your new dbt project "hndl" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:53:03.076477 [info ] [MainThread]: Setting up your profile.
+[0m11:53:03.082243 [error] [MainThread]: Encountered an error:
+while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 77, column 102
+[0m11:53:03.087429 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/main.py", line 483, in init
+    results = task.run()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 248, in setup_profile
+    if not self.check_if_can_write_profile(profile_name=profile_name):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 209, in check_if_can_write_profile
+    profiles = yaml.safe_load(f) or {}
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 258, in fetch_more_tokens
+    raise ScannerError("while scanning for the next token", None,
+yaml.scanner.ScannerError: while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 77, column 102
+
+[0m11:53:03.090049 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 6.6571636, "process_in_blocks": "0", "process_kernel_time": 0.131747, "process_mem_max_rss": "106872832", "process_out_blocks": "0", "process_user_time": 0.81812}
+[0m11:53:03.090437 [debug] [MainThread]: Command `dbt init` failed at 11:53:03.090366 after 6.66 seconds
+[0m11:53:03.090715 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108df83d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f8ffa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f8fc70>]}
+[0m11:53:03.090974 [debug] [MainThread]: Flushing usage events
+[0m11:53:04.070215 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:53:29.599372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c8c3a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109d7b4c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109d7ae00>]}
+
+
+============================== 11:53:29.602438 | cbd2639b-967e-4502-937a-920af259c110 ==============================
+[0m11:53:29.602438 [info ] [MainThread]: Running with dbt=1.11.2
+[0m11:53:29.602843 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/rish88k/.dbt', 'introspect': 'True', 'debug': 'False', 'write_json': 'True', 'no_print': 'None', 'log_format': 'default', 'log_path': 'logs', 'warn_error': 'None', 'log_cache_events': 'False', 'target_path': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'printer_width': '80', 'invocation_command': 'dbt init', 'partial_parse': 'True', 'use_colors': 'True', 'empty': 'None', 'fail_fast': 'False', 'use_experimental_parser': 'False'}
+[0m11:53:33.043429 [debug] [MainThread]: Starter project path: /Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m11:53:33.056320 [info ] [MainThread]: 
+Your new dbt project "airflow" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:53:33.057089 [info ] [MainThread]: Setting up your profile.
+[0m11:53:33.068340 [error] [MainThread]: Encountered an error:
+while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 76, column 28
+[0m11:53:33.073011 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/main.py", line 483, in init
+    results = task.run()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 248, in setup_profile
+    if not self.check_if_can_write_profile(profile_name=profile_name):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 209, in check_if_can_write_profile
+    profiles = yaml.safe_load(f) or {}
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 258, in fetch_more_tokens
+    raise ScannerError("while scanning for the next token", None,
+yaml.scanner.ScannerError: while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 76, column 28
+
+[0m11:53:33.077277 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 3.5285077, "process_in_blocks": "0", "process_kernel_time": 0.131532, "process_mem_max_rss": "106807296", "process_out_blocks": "0", "process_user_time": 0.826796}
+[0m11:53:33.077861 [debug] [MainThread]: Command `dbt init` failed at 11:53:33.077751 after 3.53 seconds
+[0m11:53:33.078289 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c8c3a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e23c40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e23eb0>]}
+[0m11:53:33.078715 [debug] [MainThread]: Flushing usage events
+[0m11:53:34.124900 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:55:32.758536 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1643a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2534c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d252e00>]}
+
+
+============================== 11:55:32.761479 | 230fe68a-f2f4-42e4-af19-1060a64c5fb8 ==============================
+[0m11:55:32.761479 [info ] [MainThread]: Running with dbt=1.11.2
+[0m11:55:32.761843 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'debug': 'False', 'invocation_command': 'dbt debug', 'use_experimental_parser': 'False', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'partial_parse': 'True', 'printer_width': '80', 'fail_fast': 'False', 'write_json': 'True', 'empty': 'None', 'warn_error': 'None', 'introspect': 'True', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'profiles_dir': '/Users/rish88k/.dbt', 'use_colors': 'True', 'cache_selected_only': 'False', 'version_check': 'True', 'indirect_selection': 'eager'}
+[0m11:55:32.772874 [info ] [MainThread]: dbt version: 1.11.2
+[0m11:55:32.773244 [info ] [MainThread]: python version: 3.10.14
+[0m11:55:32.773481 [info ] [MainThread]: python path: /Users/rish88k/data_analysis/de_project/.venv/bin/python
+[0m11:55:32.773678 [info ] [MainThread]: os info: macOS-26.1-arm64-arm-64bit
+[0m11:55:35.917809 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m11:55:35.918257 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m11:55:35.918548 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m11:55:35.968384 [info ] [MainThread]: Using profiles dir at /Users/rish88k/.dbt
+[0m11:55:35.968692 [info ] [MainThread]: Using profiles.yml file at /Users/rish88k/.dbt/profiles.yml
+[0m11:55:35.968888 [info ] [MainThread]: Using dbt_project.yml file at /Users/rish88k/data_analysis/de_project/dbt_2/dbt_project.yml
+[0m11:55:35.969138 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m11:55:35.972224 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 3.2650588, "process_in_blocks": "0", "process_kernel_time": 0.269359, "process_mem_max_rss": "186826752", "process_out_blocks": "0", "process_user_time": 1.375923}
+[0m11:55:35.972627 [debug] [MainThread]: Command `dbt debug` failed at 11:55:35.972567 after 3.27 seconds
+[0m11:55:35.972875 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1643a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2026b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113b5b970>]}
+[0m11:55:35.973109 [debug] [MainThread]: Flushing usage events
+[0m11:55:36.997526 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:56:23.672239 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10836c400>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10945b490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10945add0>]}
+
+
+============================== 11:56:23.675299 | 863f18dc-a5d7-4df1-88a1-cf8fa050d1e2 ==============================
+[0m11:56:23.675299 [info ] [MainThread]: Running with dbt=1.11.2
+[0m11:56:23.675662 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'profiles_dir': '/Users/rish88k/.dbt', 'cache_selected_only': 'False', 'static_parser': 'True', 'debug': 'False', 'invocation_command': 'dbt init user', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'no_print': 'None', 'write_json': 'True', 'use_colors': 'True', 'log_path': 'logs', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'partial_parse': 'True', 'target_path': 'None', 'indirect_selection': 'eager', 'log_format': 'default', 'introspect': 'True', 'quiet': 'False'}
+[0m11:56:23.686000 [debug] [MainThread]: Starter project path: /Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m11:56:23.695617 [info ] [MainThread]: 
+Your new dbt project "user" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:56:23.695953 [info ] [MainThread]: Setting up your profile.
+[0m11:56:23.699968 [error] [MainThread]: Encountered an error:
+while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 76, column 28
+[0m11:56:23.703892 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/cli/main.py", line 483, in init
+    results = task.run()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 248, in setup_profile
+    if not self.check_if_can_write_profile(profile_name=profile_name):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/task/init.py", line 209, in check_if_can_write_profile
+    profiles = yaml.safe_load(f) or {}
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/parser.py", line 428, in parse_block_mapping_key
+    if self.check_token(KeyToken):
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/yaml/scanner.py", line 258, in fetch_more_tokens
+    raise ScannerError("while scanning for the next token", None,
+yaml.scanner.ScannerError: while scanning for the next token
+found character '\t' that cannot start any token
+  in "/Users/rish88k/.dbt/profiles.yml", line 76, column 28
+
+[0m11:56:23.706968 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 0.08411162, "process_in_blocks": "0", "process_kernel_time": 0.124746, "process_mem_max_rss": "106807296", "process_out_blocks": "0", "process_user_time": 0.814061}
+[0m11:56:23.707390 [debug] [MainThread]: Command `dbt init` failed at 11:56:23.707327 after 0.08 seconds
+[0m11:56:23.707638 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10836c400>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109503c70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109503ee0>]}
+[0m11:56:23.707886 [debug] [MainThread]: Flushing usage events
+[0m11:56:24.921989 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:58:07.875290 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c8783d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d9674c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d966e00>]}
+
+
+============================== 11:58:07.878438 | c389cc82-49e5-41ed-b7ef-a7e0a8d38605 ==============================
+[0m11:58:07.878438 [info ] [MainThread]: Running with dbt=1.11.2
+[0m11:58:07.878799 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'log_cache_events': 'False', 'warn_error': 'None', 'use_experimental_parser': 'False', 'target_path': 'None', 'debug': 'False', 'log_format': 'default', 'log_path': 'logs', 'introspect': 'True', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'quiet': 'False', 'partial_parse': 'True', 'invocation_command': 'dbt init', 'use_colors': 'True', 'indirect_selection': 'eager', 'write_json': 'True', 'empty': 'None', 'profiles_dir': '/Users/rish88k/.dbt', 'printer_width': '80', 'fail_fast': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m11:58:14.062681 [debug] [MainThread]: Starter project path: /Users/rish88k/data_analysis/de_project/.venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m11:58:14.075547 [info ] [MainThread]: 
+Your new dbt project "orche" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:58:14.076239 [info ] [MainThread]: Setting up your profile.
+[0m11:58:31.739273 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m11:58:31.739747 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m11:58:31.739971 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m12:17:53.870055 [info ] [MainThread]: Profile orche written to /Users/rish88k/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m12:17:53.911021 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 1186.1099, "process_in_blocks": "0", "process_kernel_time": 0.283518, "process_mem_max_rss": "184762368", "process_out_blocks": "0", "process_user_time": 1.254876}
+[0m12:17:53.917713 [debug] [MainThread]: Command `dbt init` succeeded at 12:17:53.917412 after 1186.12 seconds
+[0m12:17:53.918698 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c8783d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d9657b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d9659f0>]}
+[0m12:17:53.919422 [debug] [MainThread]: Flushing usage events
+[0m12:17:54.858884 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:18:11.110542 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c528460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d613490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d612dd0>]}
+
+
+============================== 12:18:11.113599 | f0e3d061-79db-4f85-b48d-67dfe72c3bb4 ==============================
+[0m12:18:11.113599 [info ] [MainThread]: Running with dbt=1.11.2
+[0m12:18:11.113965 [debug] [MainThread]: running dbt with arguments {'log_path': 'logs', 'use_experimental_parser': 'False', 'invocation_command': 'dbt debug', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'no_print': 'None', 'log_cache_events': 'False', 'empty': 'None', 'quiet': 'False', 'use_colors': 'True', 'write_json': 'True', 'static_parser': 'True', 'profiles_dir': '/Users/rish88k/.dbt', 'version_check': 'True', 'cache_selected_only': 'False', 'printer_width': '80', 'indirect_selection': 'eager', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True'}
+[0m12:18:11.124088 [info ] [MainThread]: dbt version: 1.11.2
+[0m12:18:11.124493 [info ] [MainThread]: python version: 3.10.14
+[0m12:18:11.124699 [info ] [MainThread]: python path: /Users/rish88k/data_analysis/de_project/.venv/bin/python
+[0m12:18:11.124887 [info ] [MainThread]: os info: macOS-26.1-arm64-arm-64bit
+[0m12:18:12.123573 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m12:18:12.123922 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m12:18:12.124135 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m12:18:12.170592 [info ] [MainThread]: Using profiles dir at /Users/rish88k/.dbt
+[0m12:18:12.170902 [info ] [MainThread]: Using profiles.yml file at /Users/rish88k/.dbt/profiles.yml
+[0m12:18:12.171099 [info ] [MainThread]: Using dbt_project.yml file at /Users/rish88k/data_analysis/de_project/dbt_2/dbt_project.yml
+[0m12:18:12.171334 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m12:18:12.174120 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 1.115218, "process_in_blocks": "0", "process_kernel_time": 0.21868, "process_mem_max_rss": "189546496", "process_out_blocks": "0", "process_user_time": 1.243664}
+[0m12:18:12.174533 [debug] [MainThread]: Command `dbt debug` failed at 12:18:12.174473 after 1.12 seconds
+[0m12:18:12.174762 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c528460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d6a0d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d3eee30>]}
+[0m12:18:12.174998 [debug] [MainThread]: Flushing usage events
+[0m12:18:14.350151 [debug] [MainThread]: An error was encountered while trying to flush usage events

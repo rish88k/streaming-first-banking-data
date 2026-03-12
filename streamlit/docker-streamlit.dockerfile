@@ -2,12 +2,13 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY .streamlit .
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+RUN mkdir -p /app/.streamlit
+
+COPY banking_app.py banking_app.py
 
 EXPOSE 8501
 

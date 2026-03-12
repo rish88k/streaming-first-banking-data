@@ -3,7 +3,7 @@ import pandas as pd
 import snowflake.connector
 
 
-
+st.write("Secrets:", st.secrets)
 conn= st.connection("snowflake")
 
 
