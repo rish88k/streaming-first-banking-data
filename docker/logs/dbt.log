@@ -1,0 +1,24 @@
+[0m15:22:02.072048 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff982725a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff98271d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff98272510>]}
+
+
+============================== 15:22:02.078074 | 621d2eb7-e4ea-4fa9-bf38-6f011fab0074 ==============================
+[0m15:22:02.078074 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:22:02.078706 [debug] [MainThread]: running dbt with arguments {'log_path': 'logs', 'profiles_dir': '/opt/airflow/dbt/trans_snowf', 'log_cache_events': 'False', 'write_json': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'log_format': 'default', 'invocation_command': 'dbt debug --profiles-dir /opt/airflow/dbt/trans_snowf', 'use_colors': 'True', 'partial_parse': 'True', 'quiet': 'False', 'debug': 'False', 'printer_width': '80', 'cache_selected_only': 'False', 'fail_fast': 'False', 'no_print': 'None', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'warn_error': 'None', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'empty': 'None'}
+[0m15:22:02.087030 [info ] [MainThread]: dbt version: 1.11.7
+[0m15:22:02.087623 [info ] [MainThread]: python version: 3.12.4
+[0m15:22:02.088247 [info ] [MainThread]: python path: /home/airflow/.local/bin/python
+[0m15:22:02.088845 [info ] [MainThread]: os info: Linux-6.12.76-linuxkit-aarch64-with-glibc2.36
+[0m15:22:02.571305 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m15:22:02.571865 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m15:22:02.572202 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m15:22:02.620075 [info ] [MainThread]: Using profiles dir at /opt/airflow/dbt/trans_snowf
+[0m15:22:02.620616 [info ] [MainThread]: Using profiles.yml file at /opt/airflow/dbt/trans_snowf/profiles.yml
+[0m15:22:02.621383 [info ] [MainThread]: Using dbt_project.yml file at /opt/airflow/dbt_project.yml
+[0m15:22:02.621936 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m15:22:02.622887 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.59278643, "process_in_blocks": "48", "process_kernel_time": 0.488019, "process_mem_max_rss": "203132", "process_out_blocks": "4", "process_user_time": 2.452247}
+[0m15:22:02.623512 [debug] [MainThread]: Command `dbt debug` failed at 15:22:02.623438 after 0.59 seconds
+[0m15:22:02.623868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9cf76fc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7e04aba0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7c201670>]}
+[0m15:22:02.624221 [debug] [MainThread]: Flushing usage events
+[0m15:22:03.862080 [debug] [MainThread]: An error was encountered while trying to flush usage events

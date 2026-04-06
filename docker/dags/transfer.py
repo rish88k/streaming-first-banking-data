@@ -9,7 +9,7 @@ from airflow.providers.snowflake.transfers.copy_into_snowflake import CopyFromEx
 @dag(
     dag_id=f"transfer_from_minio_to_snowflake_transactions",
     start_date=datetime(2026, 2, 7),
-    schedule="*/1 * * * *",
+    schedule=None,
     tags=["transfer"],
     catchup=False,
     default_args={
@@ -33,7 +33,7 @@ def transfer_data_transactions():
         task_id="create_stage",
         conn_id= "warehouse_id",
         sql= """ CREATE STAGE IF NOT EXISTS incoming  
-                 URL = 's3://de-project-banking-pipeline-dev-2/transactions'
+                 URL = 's3://de-project-banking-pipeline-dev-2/'
                  STORAGE_INTEGRATION = my_s3_integration
                  FILE_FORMAT = (TYPE = 'JSON'); """
          )
@@ -43,7 +43,7 @@ def transfer_data_transactions():
         conn_id="warehouse_id",
         sql="""
             COPY INTO RAW_TRANSACTIONS (raw_json)
-            FROM @incoming
+            FROM @incoming/transactions/
             FILE_FORMAT = (TYPE = 'JSON')
             ON_ERROR = 'CONTINUE';
         """
@@ -57,7 +57,7 @@ transfer_data_transactions()
 @dag(
     dag_id=f"transfer_from_minio_to_snowflake_accounts",
     start_date=datetime(2026, 2, 7),
-    schedule="*/1 * * * *",
+    schedule=None,
     tags=["transfer"],
     catchup=False,
     default_args={
@@ -80,7 +80,7 @@ def transfer_data_accounts():
         task_id="create_stage",
         conn_id= "warehouse_id",
         sql= """ CREATE STAGE IF NOT EXISTS incoming  
-                 URL = 's3://de-project-banking-pipeline-dev-2/accounts'
+                 URL = 's3://de-project-banking-pipeline-dev-2/'
                  STORAGE_INTEGRATION = my_s3_integration
                  FILE_FORMAT = (TYPE = 'JSON'); """
          )
@@ -89,7 +89,7 @@ def transfer_data_accounts():
         conn_id="warehouse_id",
         sql="""
             COPY INTO RAW_ACCOUNTS (raw_json)
-            FROM @incoming
+            FROM @incoming/accounts/
             FILE_FORMAT = (TYPE = 'JSON')
             ON_ERROR = 'CONTINUE';
         """
@@ -102,7 +102,7 @@ transfer_data_accounts()
 @dag(
     dag_id=f"transfer_from_minio_to_snowflake_customers",
     start_date=datetime(2026, 2, 7),
-    schedule="*/1 * * * *",
+    schedule=None,
     tags=["transfer"],
     catchup=False,
     default_args={
@@ -125,7 +125,7 @@ def transfer_data_customers():
         task_id="create_stage",
         conn_id= "warehouse_id",
         sql= """ CREATE STAGE IF NOT EXISTS incoming  
-                 URL = 's3://de-project-banking-pipeline-dev-2/customers'
+                 URL = 's3://de-project-banking-pipeline-dev-2/'
                  STORAGE_INTEGRATION = my_s3_integration
                  FILE_FORMAT = (TYPE = 'JSON'); """
          )
@@ -134,7 +134,7 @@ def transfer_data_customers():
         conn_id="warehouse_id",
         sql="""
             COPY INTO RAW_CUSTOMERS (raw_json)
-            FROM @incoming
+            FROM @incoming/customers/
             FILE_FORMAT = (TYPE = 'JSON')
             ON_ERROR = 'CONTINUE';
         """

@@ -1,3 +1,5 @@
+from itertools import count
+from operator import countOf
 import psycopg2
 import time
 import random
@@ -27,7 +29,7 @@ def generate_data():
     print("Generating customers...")
 
     customers = []
-    for _ in range(10):
+    for _ in range(50):
         customers.append((
             fake.first_name(),
             fake.last_name(),
@@ -46,6 +48,8 @@ def generate_data():
     execute_values(cur, insert_cust_query, customers)
     customer_ids = [row[0] for row in cur.fetchall()]
     conn.commit()
+    num= len(customer_ids)
+    print(f"customers generated: {num}")
 
     # 2. Generate Accounts for those Customers
     print("Generating accounts...")
@@ -65,11 +69,14 @@ def generate_data():
     execute_values(cur, insert_acc_query, accounts)
     account_ids = [row[0] for row in cur.fetchall()]
     conn.commit()
+    num2= len(account_ids)
+    print(f"no. of accounts generated: {num2}")
 
     # 3. Continuous Transaction Loop
     print("Starting real-time transaction simulation...")
-    counter=0;
+    
     try:
+        counter=0
         while True:
             acc_id = random.choice(account_ids)
             trans_type = random.choice(['deposit', 'withdrawal', 'payment'])

@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: BANKING
+    schema: PUBLIC
+    tables: 
+      - name: silver_trans
+      - name: silver_acc
+      - name: silver_cust

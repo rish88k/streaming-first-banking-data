@@ -1,0 +1,29 @@
+[2026-04-03T06:07:50.644+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-04-03T06:07:50.661+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: banking_01_bronze_layer.compile manual__2026-04-03T06:07:37.226586+00:00 [queued]>
+[2026-04-03T06:07:50.664+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: banking_01_bronze_layer.compile manual__2026-04-03T06:07:37.226586+00:00 [queued]>
+[2026-04-03T06:07:50.664+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-04-03T06:07:50.670+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): compile> on 2026-04-03 06:07:37.226586+00:00
+[2026-04-03T06:07:50.672+0000] {standard_task_runner.py:64} INFO - Started process 293 to run task
+[2026-04-03T06:07:50.673+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'banking_01_bronze_layer', 'compile', 'manual__2026-04-03T06:07:37.226586+00:00', '--job-id', '9573', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmpinf41h27']
+[2026-04-03T06:07:50.675+0000] {standard_task_runner.py:91} INFO - Job 9573: Subtask compile
+[2026-04-03T06:07:50.702+0000] {task_command.py:426} INFO - Running <TaskInstance: banking_01_bronze_layer.compile manual__2026-04-03T06:07:37.226586+00:00 [running]> on host c990dffe13ae
+[2026-04-03T06:07:50.744+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='risheek' AIRFLOW_CTX_DAG_ID='banking_01_bronze_layer' AIRFLOW_CTX_TASK_ID='compile' AIRFLOW_CTX_EXECUTION_DATE='2026-04-03T06:07:37.226586+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-03T06:07:37.226586+00:00'
+[2026-04-03T06:07:50.745+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-04-03T06:07:50.745+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-04-03T06:07:50.746+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt compile --profiles-dir /opt/***/dbt/trans_snowf']
+[2026-04-03T06:07:50.750+0000] {subprocess.py:99} INFO - Output:
+[2026-04-03T06:07:51.918+0000] {subprocess.py:106} INFO - [0m06:07:51  Running with dbt=1.11.7
+[2026-04-03T06:07:52.448+0000] {subprocess.py:106} INFO - [0m06:07:52  Registered adapter: snowflake=1.11.3
+[2026-04-03T06:07:52.596+0000] {subprocess.py:106} INFO - [0m06:07:52  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-04-03T06:07:52.596+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2026-04-03T06:07:52.597+0000] {subprocess.py:106} INFO - - models.trans_snowf.example
+[2026-04-03T06:07:52.699+0000] {subprocess.py:106} INFO - [0m06:07:52  Found 14 models, 3 sources, 522 macros
+[2026-04-03T06:07:52.701+0000] {subprocess.py:106} INFO - [0m06:07:52
+[2026-04-03T06:07:52.701+0000] {subprocess.py:106} INFO - [0m06:07:52  Concurrency: 1 threads (target='dev')
+[2026-04-03T06:07:52.702+0000] {subprocess.py:106} INFO - [0m06:07:52
+[2026-04-03T06:08:00.797+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-04-03T06:08:00.799+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-04-03T06:08:00.835+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=banking_01_bronze_layer, task_id=compile, run_id=manual__2026-04-03T06:07:37.226586+00:00, execution_date=20260403T060737, start_date=20260403T060750, end_date=20260403T060800
+[2026-04-03T06:08:00.882+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-04-03T06:08:00.896+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-03T06:08:00.897+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

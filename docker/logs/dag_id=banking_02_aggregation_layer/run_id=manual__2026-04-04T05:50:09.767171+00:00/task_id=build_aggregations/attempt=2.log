@@ -1,0 +1,86 @@
+[2026-04-04T05:55:24.239+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-04-04T05:55:24.255+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: banking_02_aggregation_layer.build_aggregations manual__2026-04-04T05:50:09.767171+00:00 [queued]>
+[2026-04-04T05:55:24.258+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: banking_02_aggregation_layer.build_aggregations manual__2026-04-04T05:50:09.767171+00:00 [queued]>
+[2026-04-04T05:55:24.258+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-04-04T05:55:24.264+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): build_aggregations> on 2026-04-04 05:50:09.767171+00:00
+[2026-04-04T05:55:24.267+0000] {standard_task_runner.py:64} INFO - Started process 785 to run task
+[2026-04-04T05:55:24.269+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'banking_02_aggregation_layer', 'build_aggregations', 'manual__2026-04-04T05:50:09.767171+00:00', '--job-id', '9682', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmp5qqy8aon']
+[2026-04-04T05:55:24.270+0000] {standard_task_runner.py:91} INFO - Job 9682: Subtask build_aggregations
+[2026-04-04T05:55:24.298+0000] {task_command.py:426} INFO - Running <TaskInstance: banking_02_aggregation_layer.build_aggregations manual__2026-04-04T05:50:09.767171+00:00 [running]> on host c990dffe13ae
+[2026-04-04T05:55:24.342+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='risheek' AIRFLOW_CTX_DAG_ID='banking_02_aggregation_layer' AIRFLOW_CTX_TASK_ID='build_aggregations' AIRFLOW_CTX_EXECUTION_DATE='2026-04-04T05:50:09.767171+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-04T05:50:09.767171+00:00'
+[2026-04-04T05:55:24.343+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-04-04T05:55:24.343+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-04-04T05:55:24.344+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt build --select path:models/aggregations']
+[2026-04-04T05:55:24.347+0000] {subprocess.py:99} INFO - Output:
+[2026-04-04T05:55:25.551+0000] {subprocess.py:106} INFO - [0m05:55:25  Running with dbt=1.11.7
+[2026-04-04T05:55:26.059+0000] {subprocess.py:106} INFO - [0m05:55:26  Registered adapter: snowflake=1.11.3
+[2026-04-04T05:55:26.391+0000] {subprocess.py:106} INFO - [0m05:55:26  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-04-04T05:55:26.391+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2026-04-04T05:55:26.391+0000] {subprocess.py:106} INFO - - models.trans_snowf.example
+[2026-04-04T05:55:26.526+0000] {subprocess.py:106} INFO - [0m05:55:26  Found 14 models, 9 sources, 524 macros
+[2026-04-04T05:55:26.530+0000] {subprocess.py:106} INFO - [0m05:55:26
+[2026-04-04T05:55:26.530+0000] {subprocess.py:106} INFO - [0m05:55:26  Concurrency: 1 threads (target='dev')
+[2026-04-04T05:55:26.531+0000] {subprocess.py:106} INFO - [0m05:55:26
+[2026-04-04T05:55:28.366+0000] {subprocess.py:106} INFO - [0m05:55:28  1 of 5 START sql view model PUBLIC.accounts .................................... [RUN]
+[2026-04-04T05:55:28.564+0000] {subprocess.py:106} INFO - [0m05:55:28  1 of 5 ERROR creating sql view model PUBLIC.accounts ........................... [[31mERROR[0m in 0.19s]
+[2026-04-04T05:55:28.567+0000] {subprocess.py:106} INFO - [0m05:55:28  2 of 5 START sql view model PUBLIC.customers ................................... [RUN]
+[2026-04-04T05:55:28.736+0000] {subprocess.py:106} INFO - [0m05:55:28  2 of 5 ERROR creating sql view model PUBLIC.customers .......................... [[31mERROR[0m in 0.17s]
+[2026-04-04T05:55:28.738+0000] {subprocess.py:106} INFO - [0m05:55:28  3 of 5 START sql view model PUBLIC.trans_amount ................................ [RUN]
+[2026-04-04T05:55:28.876+0000] {subprocess.py:106} INFO - [0m05:55:28  3 of 5 ERROR creating sql view model PUBLIC.trans_amount ....................... [[31mERROR[0m in 0.14s]
+[2026-04-04T05:55:28.879+0000] {subprocess.py:106} INFO - [0m05:55:28  4 of 5 START sql view model PUBLIC.trans_count ................................. [RUN]
+[2026-04-04T05:55:29.149+0000] {subprocess.py:106} INFO - [0m05:55:29  4 of 5 OK created sql view model PUBLIC.trans_count ............................ [[32mSUCCESS 1[0m in 0.27s]
+[2026-04-04T05:55:29.152+0000] {subprocess.py:106} INFO - [0m05:55:29  5 of 5 START sql view model PUBLIC.trans_type .................................. [RUN]
+[2026-04-04T05:55:29.385+0000] {subprocess.py:106} INFO - [0m05:55:29  5 of 5 OK created sql view model PUBLIC.trans_type ............................. [[32mSUCCESS 1[0m in 0.23s]
+[2026-04-04T05:55:30.048+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.051+0000] {subprocess.py:106} INFO - [0m05:55:30  Finished running 5 view models in 0 hours 0 minutes and 3.52 seconds (3.52s).
+[2026-04-04T05:55:30.114+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.114+0000] {subprocess.py:106} INFO - [0m05:55:30  [31mCompleted with 3 errors, 0 partial successes, and 0 warnings:[0m
+[2026-04-04T05:55:30.115+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.115+0000] {subprocess.py:106} INFO - [0m05:55:30  [31mFailure in model accounts (models/aggregations/accounts.sql)[0m
+[2026-04-04T05:55:30.116+0000] {subprocess.py:106} INFO - [0m05:55:30    Database Error in model accounts (models/aggregations/accounts.sql)
+[2026-04-04T05:55:30.116+0000] {subprocess.py:106} INFO -   001003 (42000): SQL compilation error:
+[2026-04-04T05:55:30.117+0000] {subprocess.py:106} INFO -   syntax error line 23 at position 0 unexpected 'temp2'.
+[2026-04-04T05:55:30.117+0000] {subprocess.py:106} INFO -   syntax error line 24 at position 29 unexpected 'as'.
+[2026-04-04T05:55:30.117+0000] {subprocess.py:106} INFO -   compiled code at target/run/trans_snowf/models/aggregations/accounts.sql
+[2026-04-04T05:55:30.117+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.117+0000] {subprocess.py:106} INFO - [0m05:55:30    compiled code at target/compiled/trans_snowf/models/aggregations/accounts.sql
+[2026-04-04T05:55:30.118+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.118+0000] {subprocess.py:106} INFO - [0m05:55:30  [31mFailure in model customers (models/aggregations/customers.sql)[0m
+[2026-04-04T05:55:30.118+0000] {subprocess.py:106} INFO - [0m05:55:30    Database Error in model customers (models/aggregations/customers.sql)
+[2026-04-04T05:55:30.118+0000] {subprocess.py:106} INFO -   000904 (42000): SQL compilation error: error line 15 at position 17
+[2026-04-04T05:55:30.118+0000] {subprocess.py:106} INFO -   invalid identifier 'CUST_ID'
+[2026-04-04T05:55:30.119+0000] {subprocess.py:106} INFO -   compiled code at target/run/trans_snowf/models/aggregations/customers.sql
+[2026-04-04T05:55:30.119+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.119+0000] {subprocess.py:106} INFO - [0m05:55:30    compiled code at target/compiled/trans_snowf/models/aggregations/customers.sql
+[2026-04-04T05:55:30.119+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.119+0000] {subprocess.py:106} INFO - [0m05:55:30  [31mFailure in model trans_amount (models/aggregations/trans_amount.sql)[0m
+[2026-04-04T05:55:30.119+0000] {subprocess.py:106} INFO - [0m05:55:30    Database Error in model trans_amount (models/aggregations/trans_amount.sql)
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO -   001003 (42000): SQL compilation error:
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO -   syntax error line 15 at position 9 unexpected 'when'.
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO -   syntax error line 20 at position 1 unexpected ','.
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO -   compiled code at target/run/trans_snowf/models/aggregations/trans_amount.sql
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO - [0m05:55:30    compiled code at target/compiled/trans_snowf/models/aggregations/trans_amount.sql
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO - [0m05:55:30
+[2026-04-04T05:55:30.120+0000] {subprocess.py:106} INFO - [0m05:55:30  Done. PASS=2 WARN=0 ERROR=3 SKIP=0 NO-OP=0 TOTAL=5
+[2026-04-04T05:55:31.817+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-04-04T05:55:31.818+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-04-04T05:55:31.829+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/standard/operators/bash.py", line 233, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-04-04T05:55:31.832+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=banking_02_aggregation_layer, task_id=build_aggregations, run_id=manual__2026-04-04T05:50:09.767171+00:00, execution_date=20260404T055009, start_date=20260404T055524, end_date=20260404T055531
+[2026-04-04T05:55:31.843+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 9682 for task build_aggregations (Bash command failed. The command returned a non-zero exit code 1.; 785)
+[2026-04-04T05:55:31.856+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-04-04T05:55:31.869+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-04T05:55:31.869+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

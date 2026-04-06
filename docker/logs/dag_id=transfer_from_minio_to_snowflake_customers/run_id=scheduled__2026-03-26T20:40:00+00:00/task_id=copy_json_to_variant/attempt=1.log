@@ -1,0 +1,130 @@
+[2026-03-26T22:39:08.619+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-26T22:39:08.635+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake_customers.copy_json_to_variant scheduled__2026-03-26T20:40:00+00:00 [queued]>
+[2026-03-26T22:39:08.638+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake_customers.copy_json_to_variant scheduled__2026-03-26T20:40:00+00:00 [queued]>
+[2026-03-26T22:39:08.638+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-26T22:39:08.643+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): copy_json_to_variant> on 2026-03-26 20:40:00+00:00
+[2026-03-26T22:39:08.649+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=6859) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-26T22:39:08.647+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'transfer_from_minio_to_snowflake_customers', 'copy_json_to_variant', 'scheduled__2026-03-26T20:40:00+00:00', '--job-id', '3429', '--raw', '--subdir', 'DAGS_FOLDER/transfer.py', '--cfg-path', '/tmp/tmpowf76ofz']
+[2026-03-26T22:39:08.649+0000] {standard_task_runner.py:91} INFO - Job 3429: Subtask copy_json_to_variant
+[2026-03-26T22:39:08.649+0000] {standard_task_runner.py:64} INFO - Started process 6871 to run task
+[2026-03-26T22:39:08.676+0000] {task_command.py:426} INFO - Running <TaskInstance: transfer_from_minio_to_snowflake_customers.copy_json_to_variant scheduled__2026-03-26T20:40:00+00:00 [running]> on host c990dffe13ae
+[2026-03-26T22:39:08.804+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='transfer_from_minio_to_snowflake_customers' AIRFLOW_CTX_TASK_ID='copy_json_to_variant' AIRFLOW_CTX_EXECUTION_DATE='2026-03-26T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-26T20:40:00+00:00'
+[2026-03-26T22:39:08.805+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-26T22:39:08.805+0000] {sql.py:282} INFO - Executing: 
+            COPY INTO RAW_CUSTOMERS (raw_json)
+            FROM @incoming
+            FILE_FORMAT = (TYPE = 'JSON')
+            ON_ERROR = 'CONTINUE';
+        
+[2026-03-26T22:39:08.810+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-03-26T22:39:08.840+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-03-26T22:39:08.877+0000] {connection.py:613} INFO - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.4, Platform: Linux-6.12.76-linuxkit-aarch64-with-glibc2.36
+[2026-03-26T22:39:08.877+0000] {connection.py:1709} INFO - Connecting to GLOBAL Snowflake domain
+[2026-03-26T22:54:49.694+0000] {local_task_job_runner.py:214} ERROR - Heartbeat time limit exceeded!
+[2026-03-26T22:54:49.697+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-03-26T22:54:49.702+0000] {process_utils.py:132} INFO - Sending 15 to group 6871. PIDs of all processes in the group: [6871]
+[2026-03-26T22:54:49.703+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 6871
+[2026-03-26T22:54:49.705+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-03-26T22:54:52.283+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-26T22:54:52.319+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py", line 326, in recv_into
+    return self.connection.recv_into(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/OpenSSL/SSL.py", line 2339, in recv_into
+    self._raise_ssl_error(self._ssl, result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/OpenSSL/SSL.py", line 2017, in _raise_ssl_error
+    raise WantReadError()
+OpenSSL.SSL.WantReadError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 288, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 405, in run
+    self.set_autocommit(conn, autocommit)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 322, in set_autocommit
+    conn.autocommit(autocommit)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1263, in autocommit
+    self.cursor().execute(f"ALTER SESSION SET autocommit={mode}")
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1033, in execute
+    ret = self._execute_helper(query, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 739, in _execute_helper
+    ret = self._connection.cmd_query(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1916, in cmd_query
+    ret = self.rest.request(
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 487, in request
+    return self._post_request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 754, in _post_request
+    ret = self.fetch(
+          ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 873, in fetch
+    ret = self._request_exec_wrapper(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 924, in _request_exec_wrapper
+    return_object = self._request_exec(
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 1109, in _request_exec
+    raw_ret = session.request(
+              ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connection.py", line 580, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 708, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py", line 338, in recv_into
+    if not util.wait_for_read(self.socket, self.socket.gettimeout()):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/wait.py", line 117, in wait_for_read
+    return wait_for_socket(sock, read=True, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/wait.py", line 79, in poll_wait_for_socket
+    return bool(do_poll(timeout))
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/wait.py", line 77, in do_poll
+    return poll_obj.poll(t)
+           ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-03-26T22:54:52.342+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=transfer_from_minio_to_snowflake_customers, task_id=copy_json_to_variant, run_id=scheduled__2026-03-26T20:40:00+00:00, execution_date=20260326T204000, start_date=20260326T223908, end_date=20260326T225452
+[2026-03-26T22:54:52.376+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=6871, status='terminated', exitcode=2, started='22:39:07') (6871) terminated with exit code 2

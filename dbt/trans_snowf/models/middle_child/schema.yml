@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: BANKING
+    schema: PUBLIC_BRONZE
+    tables: 
+      - name: BRONZE_TRANS
+      - name: BRONZE_ACC
+      - name: BRONZE_CUST

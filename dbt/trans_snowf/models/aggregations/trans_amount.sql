@@ -6,9 +6,9 @@ with temp as (
 
 unpacked as (
     select transaction_id, amount
-    case when amount < 200 and amount > 0 then 'rainbet'
-         when amount > 200 and amount < 1000 then 'grocers'
-         when amount > 1000 then 'poker'
+    case when amount_raw < 200 and amount_raw > 0 then 'rainbet'
+         when amount_raw > 200 and amount_raw < 1000 then 'grocers'
+         when amount_raw > 1000 then 'poker'
          else null end as Category
     from temp
 ),

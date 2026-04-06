@@ -12,6 +12,7 @@
     "plugin.name": "pgoutput",
     "slot.name": "debezium_slot",
     "publication.name": "banking_publication",
-    "publication.autocreate.mode": "all_tables"
+    "publication.autocreate.mode": "all_tables",
+    "decimal.handling.mode": "string"
   }
 }

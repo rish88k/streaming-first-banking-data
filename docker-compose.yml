@@ -73,7 +73,7 @@ services:
   airflow-webserver:
     build:
       context: .
-      dockerfile: docker-airflow.dockerfile
+      dockerfile: .dockerfile
     container_name: airflow-webserver
     restart: always
     depends_on:
@@ -95,7 +95,7 @@ services:
   airflow-scheduler:
     build:
       context: .
-      dockerfile: docker-airflow.dockerfile
+      dockerfile: .dockerfile
     container_name: airflow-scheduler
     restart: always
     depends_on:
@@ -109,6 +109,7 @@ services:
       - ./docker/logs:/opt/airflow/logs
       - ./docker/plugins:/opt/airflow/plugins
       - ./secrets:/opt/airflow/secrets
+      - ./dbt/trans_snowf:/opt/airflow/dbt/trans_snowf
     command: scheduler
 
 
@@ -158,10 +159,10 @@ services:
   streamlit-dashboard:
     build:
       context: streamlit/
-      dockerfile: docker-streamlit.dockerfile
-    container_name: streamlit_ui
+      dockerfile: streamlit.dockerfile
+    container_name: ui
     ports:
-      - "8501:8501"
+      - "6969:6969"
     volumes:
       - ./keys_/streamlit_key:/app/keys_
       - ./streamlit/.streamlit:/app/.streamlit

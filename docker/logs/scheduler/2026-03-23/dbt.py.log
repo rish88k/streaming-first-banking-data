@@ -1,0 +1,462 @@
+[2026-03-23T11:34:33.975+0000] {processor.py:161} INFO - Started process (PID=25) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:34:33.976+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:34:33.977+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:34:33.977+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:34:33.985+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:34:33.983+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:34:33.987+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:34:34.009+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.040 seconds
+[2026-03-23T11:35:05.550+0000] {processor.py:161} INFO - Started process (PID=31) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:35:05.552+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:35:05.557+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:05.556+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:35:05.565+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:05.563+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:35:05.565+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:35:05.601+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.073 seconds
+[2026-03-23T11:35:36.021+0000] {processor.py:161} INFO - Started process (PID=33) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:35:36.025+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:35:36.030+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:36.030+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:35:36.044+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:36.040+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:35:36.044+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:35:36.080+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.075 seconds
+[2026-03-23T11:36:06.480+0000] {processor.py:161} INFO - Started process (PID=35) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:36:06.481+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:36:06.494+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:36:06.493+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:36:06.510+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:36:06.503+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:36:06.512+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:36:06.601+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.140 seconds
+[2026-03-23T11:36:37.021+0000] {processor.py:161} INFO - Started process (PID=37) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:36:37.022+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:36:37.029+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:36:37.028+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:36:37.038+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:36:37.037+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:36:37.039+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:36:37.070+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.062 seconds
+[2026-03-23T11:37:07.402+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:37:07.405+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:37:07.406+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:37:07.406+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:37:07.415+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:37:07.411+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:37:07.415+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:37:07.441+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.051 seconds
+[2026-03-23T11:37:37.768+0000] {processor.py:161} INFO - Started process (PID=41) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:37:37.769+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:37:37.773+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:37:37.773+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:37:37.780+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:37:37.779+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:37:37.781+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:37:37.806+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.050 seconds
+[2026-03-23T11:38:05.442+0000] {processor.py:161} INFO - Started process (PID=25) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:38:05.443+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:38:05.444+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:38:05.444+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:38:05.450+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:38:05.448+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:38:05.451+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:38:05.473+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.036 seconds
+[2026-03-23T11:38:36.606+0000] {processor.py:161} INFO - Started process (PID=31) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:38:36.608+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:38:36.613+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:38:36.612+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:38:36.621+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:38:36.619+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:38:36.622+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:38:36.654+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.056 seconds
+[2026-03-23T11:39:27.345+0000] {processor.py:161} INFO - Started process (PID=27) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:39:27.346+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:39:27.348+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:39:27.348+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:39:27.354+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:39:27.353+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:39:27.355+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:39:27.376+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.035 seconds
+[2026-03-23T11:39:58.090+0000] {processor.py:161} INFO - Started process (PID=34) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:39:58.092+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:39:58.097+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:39:58.096+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:39:58.105+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:39:58.104+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:39:58.107+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:39:58.144+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.064 seconds
+[2026-03-23T11:40:28.536+0000] {processor.py:161} INFO - Started process (PID=36) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:40:28.538+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:40:28.541+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:40:28.541+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:40:28.547+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:40:28.545+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:40:28.548+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:40:28.574+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.049 seconds
+[2026-03-23T11:40:58.953+0000] {processor.py:161} INFO - Started process (PID=38) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:40:58.954+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:40:58.962+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:40:58.962+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:40:58.970+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:40:58.968+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:40:58.972+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:40:58.998+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.059 seconds
+[2026-03-23T11:41:29.397+0000] {processor.py:161} INFO - Started process (PID=40) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:41:29.400+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:41:29.404+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:41:29.404+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:41:29.414+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:41:29.410+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:41:29.416+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:41:29.442+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.062 seconds
+[2026-03-23T11:41:59.803+0000] {processor.py:161} INFO - Started process (PID=42) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:41:59.805+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:41:59.809+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:41:59.808+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:41:59.819+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:41:59.817+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:41:59.822+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:41:59.852+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.071 seconds
+[2026-03-23T11:42:30.266+0000] {processor.py:161} INFO - Started process (PID=44) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:42:30.268+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:42:30.275+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:42:30.275+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:42:30.281+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:42:30.280+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:42:30.282+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:42:30.314+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.066 seconds
+[2026-03-23T11:42:50.565+0000] {processor.py:161} INFO - Started process (PID=46) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:42:50.566+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:42:50.568+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:42:50.568+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:42:50.580+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:42:50.576+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.operators import BashOperator
+ImportError: cannot import name 'BashOperator' from 'airflow.operators' (/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/__init__.py)
+[2026-03-23T11:42:50.581+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:42:50.604+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.046 seconds
+[2026-03-23T11:43:21.002+0000] {processor.py:161} INFO - Started process (PID=48) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:43:21.004+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:43:21.010+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:43:21.009+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:43:21.018+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:43:21.016+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.operators import BashOperator
+ImportError: cannot import name 'BashOperator' from 'airflow.operators' (/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/__init__.py)
+[2026-03-23T11:43:21.020+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:43:21.048+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.064 seconds
+[2026-03-23T11:43:51.355+0000] {processor.py:161} INFO - Started process (PID=50) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:43:51.356+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:43:51.358+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:43:51.358+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:43:51.365+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:43:51.363+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.operators import BashOperator
+ImportError: cannot import name 'BashOperator' from 'airflow.operators' (/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/__init__.py)
+[2026-03-23T11:43:51.367+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:43:51.387+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.040 seconds
+[2026-03-23T11:44:21.784+0000] {processor.py:161} INFO - Started process (PID=52) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:44:21.786+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:44:21.797+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:44:21.796+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:44:21.805+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:44:21.803+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.operators import BashOperator
+ImportError: cannot import name 'BashOperator' from 'airflow.operators' (/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/__init__.py)
+[2026-03-23T11:44:21.806+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:44:21.844+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.074 seconds
+[2026-03-23T11:44:52.291+0000] {processor.py:161} INFO - Started process (PID=54) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:44:52.294+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:44:52.299+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:44:52.299+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:44:52.313+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:44:52.310+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.operators import BashOperator
+ImportError: cannot import name 'BashOperator' from 'airflow.operators' (/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/__init__.py)
+[2026-03-23T11:44:52.315+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:44:52.349+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.075 seconds
+[2026-03-23T11:45:05.490+0000] {processor.py:161} INFO - Started process (PID=56) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:45:05.491+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:45:05.493+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:45:05.493+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:45:05.501+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:45:05.500+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:45:05.501+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:45:05.521+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.040 seconds
+[2026-03-23T11:45:35.927+0000] {processor.py:161} INFO - Started process (PID=58) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:45:35.930+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:45:35.936+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:45:35.936+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:45:35.942+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:45:35.941+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:45:35.943+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:45:35.985+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.068 seconds
+[2026-03-23T11:46:06.361+0000] {processor.py:161} INFO - Started process (PID=60) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:46:06.363+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:46:06.365+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:46:06.364+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:46:06.369+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:46:06.368+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:46:06.370+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:46:06.390+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.038 seconds
+[2026-03-23T11:46:36.701+0000] {processor.py:161} INFO - Started process (PID=62) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:46:36.702+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:46:36.704+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:46:36.704+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:46:36.709+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:46:36.707+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:46:36.709+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:46:36.730+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.036 seconds
+[2026-03-23T11:47:07.110+0000] {processor.py:161} INFO - Started process (PID=64) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:47:07.112+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:47:07.114+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:47:07.114+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:47:07.119+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:47:07.118+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:47:07.120+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:47:07.139+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.035 seconds
+[2026-03-23T11:47:37.443+0000] {processor.py:161} INFO - Started process (PID=66) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:47:37.444+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:47:37.448+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:47:37.447+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:47:37.454+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:47:37.452+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:47:37.454+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:47:37.480+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.047 seconds
+[2026-03-23T11:48:07.766+0000] {processor.py:161} INFO - Started process (PID=68) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:48:07.768+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:48:07.770+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:48:07.770+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:48:07.775+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:48:07.773+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:48:07.775+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:48:07.797+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.038 seconds
+[2026-03-23T11:48:38.090+0000] {processor.py:161} INFO - Started process (PID=70) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:48:38.091+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:48:38.094+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:48:38.093+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:48:38.099+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:48:38.097+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:48:38.099+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:48:38.121+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.038 seconds
+[2026-03-23T11:49:08.418+0000] {processor.py:161} INFO - Started process (PID=72) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:49:08.420+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:49:08.422+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:49:08.421+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:49:08.426+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:49:08.425+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:49:08.427+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:49:08.448+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.037 seconds
+[2026-03-23T11:49:38.754+0000] {processor.py:161} INFO - Started process (PID=74) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:49:38.755+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:49:38.758+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:49:38.758+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:49:38.762+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:49:38.761+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:49:38.762+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:49:38.775+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.026 seconds
+[2026-03-23T11:50:09.107+0000] {processor.py:161} INFO - Started process (PID=76) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:50:09.108+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:50:09.111+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:50:09.110+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:50:09.115+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:50:09.114+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:50:09.116+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:50:09.135+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.036 seconds
+[2026-03-23T11:50:39.490+0000] {processor.py:161} INFO - Started process (PID=78) to work on /opt/airflow/dags/dbt.py
+[2026-03-23T11:50:39.491+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt.py for tasks to queue
+[2026-03-23T11:50:39.496+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:50:39.496+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dbt.py
+[2026-03-23T11:50:39.503+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:50:39.501+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/dbt.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dbt.py", line 2, in <module>
+    from airflow.providers.standard.operators.bash import BashOperator
+ModuleNotFoundError: No module named 'airflow.providers.standard'
+[2026-03-23T11:50:39.503+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/dbt.py
+[2026-03-23T11:50:39.529+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt.py took 0.053 seconds

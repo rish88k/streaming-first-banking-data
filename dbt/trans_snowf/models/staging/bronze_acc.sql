@@ -1,4 +1,7 @@
-{{ config(materialized='incremental', unique_key='account_id') }}
+{{ config(
+    materialized='incremental', 
+    unique_key='account_id'
+) }}
 
 with raw_source as (
     select * from {{ source('raw_data', 'RAW_ACCOUNTS') }}
@@ -7,25 +10,34 @@ with raw_source as (
 unpacked as (
     select
         -- Metadata for CDC
-        payload:op::STRING as operation_type,
-        payload:ts_ms::TIMESTAMP_NTZ as event_timestamp_ms,
+        raw_json:"payload":"op"::STRING as operation_type,
+        raw_json:"payload":"source":"ts_ms"::BIGINT as event_timestamp_ms,
 
-        -- Account Data (Matching your DDL)
-        payload:after.account_id::UUID as account_id,
-        payload:after.customer_id::UUID as customer_id,
-        payload:after.account_number::STRING as account_number,
-        payload:after.account_type::STRING as account_type,
+        -- Account Data
+        raw_json:"payload":"after":"account_id"::UUID as account_id,
+        raw_json:"payload":"after":"customer_id"::UUID as customer_id,
+        raw_json:"payload":"after":"account_number"::STRING as account_number,
+        raw_json:"payload":"after":"account_type"::STRING as account_type,
         
-        -- Handling Decimal(15,2)
-        payload:after.balance::DECIMAL(15,2) as balance,
-        payload:after.currency::STRING as currency,
-        payload:after.status::STRING as status,
+        -- Note: 'balance' might be Base64 if it's a Decimal in Debezium. 
+        -- If so, use ::STRING and decode later, otherwise use ::DECIMAL
+        -- raw_json:"payload":"after":"balance"::DECIMAL(15,2) as balance,
+        {{ decode_base64_safe('raw_json:"payload":"after":"balance"::STRING', 2) }} AS balance,
+        -- TRY_TO_DECIMAL(
+        --        BASE64_DECODE_BINARY(raw_json:"payload":"after":"balance"::STRING),
+        --       0
+           -- )::STRING, 
+           -- 15, 2
+           --) as balance,
+
+        raw_json:"payload":"after":"currency"::STRING as currency,
+        raw_json:"payload":"after":"status"::STRING as status,
 
         -- Source Timestamp
-        payload:after.created_at::TIMESTAMP_TZ as created_at,
+        raw_json:"payload":"after":"created_at"::TIMESTAMP_TZ as created_at,
 
         -- Audit Info
-        payload:source.lsn::INT as postgres_lsn
+        raw_json:"payload":"source":"lsn"::INT as postgres_lsn
     from raw_source
 )
 

@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir boto3 confluent-kafka
 
 ENV PYTHONUNBUFFERED=1
 
-COPY micro-batching.py  .
+COPY micro_batching.py  .
+COPY new_batching.py .
+COPY main.py .
 
-CMD [ "python", "-u", "micro-batching.py" ]
+CMD [ "python", "-u", "main.py" ]

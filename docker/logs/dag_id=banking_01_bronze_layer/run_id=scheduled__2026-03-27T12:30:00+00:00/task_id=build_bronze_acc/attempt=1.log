@@ -1,0 +1,50 @@
+[2026-03-27T13:52:25.356+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-27T13:52:25.374+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: banking_01_bronze_layer.build_bronze_acc scheduled__2026-03-27T12:30:00+00:00 [queued]>
+[2026-03-27T13:52:25.377+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: banking_01_bronze_layer.build_bronze_acc scheduled__2026-03-27T12:30:00+00:00 [queued]>
+[2026-03-27T13:52:25.377+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-03-27T13:52:25.382+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): build_bronze_acc> on 2026-03-27 12:30:00+00:00
+[2026-03-27T13:52:25.385+0000] {standard_task_runner.py:64} INFO - Started process 38462 to run task
+[2026-03-27T13:52:25.386+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'banking_01_bronze_layer', 'build_bronze_acc', 'scheduled__2026-03-27T12:30:00+00:00', '--job-id', '5455', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmpslq4hegp']
+[2026-03-27T13:52:25.387+0000] {standard_task_runner.py:91} INFO - Job 5455: Subtask build_bronze_acc
+[2026-03-27T13:52:25.412+0000] {task_command.py:426} INFO - Running <TaskInstance: banking_01_bronze_layer.build_bronze_acc scheduled__2026-03-27T12:30:00+00:00 [running]> on host c990dffe13ae
+[2026-03-27T13:52:25.454+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='risheek' AIRFLOW_CTX_DAG_ID='banking_01_bronze_layer' AIRFLOW_CTX_TASK_ID='build_bronze_acc' AIRFLOW_CTX_EXECUTION_DATE='2026-03-27T12:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-27T12:30:00+00:00'
+[2026-03-27T13:52:25.454+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-27T13:52:25.456+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-03-27T13:52:25.459+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt build --select bronze_acc']
+[2026-03-27T13:52:25.462+0000] {subprocess.py:99} INFO - Output:
+[2026-03-27T13:52:26.704+0000] {subprocess.py:106} INFO - [0m13:52:26  Running with dbt=1.11.7
+[2026-03-27T13:52:27.214+0000] {subprocess.py:106} INFO - [0m13:52:27  Registered adapter: snowflake=1.11.3
+[2026-03-27T13:52:27.358+0000] {subprocess.py:106} INFO - [0m13:52:27  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-03-27T13:52:27.358+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2026-03-27T13:52:27.359+0000] {subprocess.py:106} INFO - - models.trans_snowf.example
+[2026-03-27T13:52:27.526+0000] {subprocess.py:106} INFO - [0m13:52:27  Found 14 models, 3 sources, 522 macros
+[2026-03-27T13:52:27.528+0000] {subprocess.py:106} INFO - [0m13:52:27
+[2026-03-27T13:52:27.529+0000] {subprocess.py:106} INFO - [0m13:52:27  Concurrency: 1 threads (target='dev')
+[2026-03-27T13:52:27.530+0000] {subprocess.py:106} INFO - [0m13:52:27
+[2026-03-27T13:52:28.858+0000] {subprocess.py:106} INFO - [0m13:52:28
+[2026-03-27T13:52:28.860+0000] {subprocess.py:106} INFO - [0m13:52:28  Finished running  in 0 hours 0 minutes and 1.33 seconds (1.33s).
+[2026-03-27T13:52:28.862+0000] {subprocess.py:106} INFO - [0m13:52:28  Encountered an error:
+[2026-03-27T13:52:28.863+0000] {subprocess.py:106} INFO - Database Error
+[2026-03-27T13:52:28.863+0000] {subprocess.py:106} INFO -   003001 (42501): SQL access control error:
+[2026-03-27T13:52:28.864+0000] {subprocess.py:106} INFO -   Insufficient privileges to operate on database 'BANKING'.
+[2026-03-27T13:52:30.515+0000] {subprocess.py:110} INFO - Command exited with return code 2
+[2026-03-27T13:52:30.516+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-27T13:52:30.535+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/standard/operators/bash.py", line 233, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-03-27T13:52:30.539+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=banking_01_bronze_layer, task_id=build_bronze_acc, run_id=scheduled__2026-03-27T12:30:00+00:00, execution_date=20260327T123000, start_date=20260327T135225, end_date=20260327T135230
+[2026-03-27T13:52:30.551+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5455 for task build_bronze_acc (Bash command failed. The command returned a non-zero exit code 2.; 38462)
+[2026-03-27T13:52:30.576+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-03-27T13:52:30.590+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-27T13:52:30.590+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

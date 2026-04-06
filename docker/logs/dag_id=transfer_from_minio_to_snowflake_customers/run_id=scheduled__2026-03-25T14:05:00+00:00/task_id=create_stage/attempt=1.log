@@ -1,0 +1,37 @@
+[2026-03-25T14:06:18.351+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-25T14:06:18.366+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake_customers.create_stage scheduled__2026-03-25T14:05:00+00:00 [queued]>
+[2026-03-25T14:06:18.369+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake_customers.create_stage scheduled__2026-03-25T14:05:00+00:00 [queued]>
+[2026-03-25T14:06:18.369+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-25T14:06:18.375+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): create_stage> on 2026-03-25 14:05:00+00:00
+[2026-03-25T14:06:18.379+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=2869) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-25T14:06:18.379+0000] {standard_task_runner.py:64} INFO - Started process 2879 to run task
+[2026-03-25T14:06:18.380+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'transfer_from_minio_to_snowflake_customers', 'create_stage', 'scheduled__2026-03-25T14:05:00+00:00', '--job-id', '1198', '--raw', '--subdir', 'DAGS_FOLDER/transfer.py', '--cfg-path', '/tmp/tmpabawg14r']
+[2026-03-25T14:06:18.381+0000] {standard_task_runner.py:91} INFO - Job 1198: Subtask create_stage
+[2026-03-25T14:06:18.406+0000] {task_command.py:426} INFO - Running <TaskInstance: transfer_from_minio_to_snowflake_customers.create_stage scheduled__2026-03-25T14:05:00+00:00 [running]> on host 6fdc51cbadaf
+[2026-03-25T14:06:18.451+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='transfer_from_minio_to_snowflake_customers' AIRFLOW_CTX_TASK_ID='create_stage' AIRFLOW_CTX_EXECUTION_DATE='2026-03-25T14:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-25T14:05:00+00:00'
+[2026-03-25T14:06:18.451+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-25T14:06:18.452+0000] {sql.py:282} INFO - Executing:  CREATE STAGE IF NOT EXISTS incoming  
+                 URL = 's3://de-project-banking-pipeline-dev-2/customers'
+                 STORAGE_INTEGRATION = my_s3_integration
+                 FILE_FORMAT = (TYPE = 'JSON'); 
+[2026-03-25T14:06:18.459+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-03-25T14:06:18.491+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-03-25T14:06:18.530+0000] {connection.py:408} INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Linux-6.12.76-linuxkit-aarch64-with-glibc2.36
+[2026-03-25T14:06:18.530+0000] {connection.py:1258} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-03-25T14:06:19.344+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2026-03-25T14:06:19.345+0000] {sql.py:495} INFO - Running statement: CREATE STAGE IF NOT EXISTS incoming  
+                 URL = 's3://de-project-banking-pipeline-dev-2/customers'
+                 STORAGE_INTEGRATION = my_s3_integration
+                 FILE_FORMAT = (TYPE = 'JSON');, parameters: None
+[2026-03-25T14:06:19.540+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2026-03-25T14:06:19.541+0000] {sql.py:504} INFO - Rows affected: 1
+[2026-03-25T14:06:19.542+0000] {snowflake.py:422} INFO - Rows affected: 1
+[2026-03-25T14:06:19.543+0000] {snowflake.py:423} INFO - Snowflake query id: 01c343ee-3202-7c30-0014-90e60003ac1e
+[2026-03-25T14:06:19.682+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2026-03-25T14:06:19.683+0000] {connection.py:773} INFO - closed
+[2026-03-25T14:06:19.800+0000] {connection.py:779} INFO - No async queries seem to be running, deleting session
+[2026-03-25T14:06:19.927+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-25T14:06:19.967+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=transfer_from_minio_to_snowflake_customers, task_id=create_stage, run_id=scheduled__2026-03-25T14:05:00+00:00, execution_date=20260325T140500, start_date=20260325T140618, end_date=20260325T140619
+[2026-03-25T14:06:20.002+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-03-25T14:06:20.025+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-25T14:06:20.026+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

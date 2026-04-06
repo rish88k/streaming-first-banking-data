@@ -1,0 +1,37 @@
+[2026-03-28T21:30:41.349+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-28T21:30:41.364+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: banking_01_bronze_layer.build_bronze_trans scheduled__2026-03-28T21:00:00+00:00 [queued]>
+[2026-03-28T21:30:41.367+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: banking_01_bronze_layer.build_bronze_trans scheduled__2026-03-28T21:00:00+00:00 [queued]>
+[2026-03-28T21:30:41.367+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-03-28T21:30:41.373+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): build_bronze_trans> on 2026-03-28 21:00:00+00:00
+[2026-03-28T21:30:41.375+0000] {standard_task_runner.py:64} INFO - Started process 13523 to run task
+[2026-03-28T21:30:41.377+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'banking_01_bronze_layer', 'build_bronze_trans', 'scheduled__2026-03-28T21:00:00+00:00', '--job-id', '6985', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmp271ociq_']
+[2026-03-28T21:30:41.378+0000] {standard_task_runner.py:91} INFO - Job 6985: Subtask build_bronze_trans
+[2026-03-28T21:30:41.403+0000] {task_command.py:426} INFO - Running <TaskInstance: banking_01_bronze_layer.build_bronze_trans scheduled__2026-03-28T21:00:00+00:00 [running]> on host c990dffe13ae
+[2026-03-28T21:30:41.445+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='risheek' AIRFLOW_CTX_DAG_ID='banking_01_bronze_layer' AIRFLOW_CTX_TASK_ID='build_bronze_trans' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T21:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-28T21:00:00+00:00'
+[2026-03-28T21:30:41.445+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-28T21:30:41.445+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-03-28T21:30:41.446+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt build --select bronze_trans']
+[2026-03-28T21:30:41.450+0000] {subprocess.py:99} INFO - Output:
+[2026-03-28T21:30:42.612+0000] {subprocess.py:106} INFO - [0m21:30:42  Running with dbt=1.11.7
+[2026-03-28T21:30:43.076+0000] {subprocess.py:106} INFO - [0m21:30:43  Registered adapter: snowflake=1.11.3
+[2026-03-28T21:30:43.207+0000] {subprocess.py:106} INFO - [0m21:30:43  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-03-28T21:30:43.208+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2026-03-28T21:30:43.208+0000] {subprocess.py:106} INFO - - models.trans_snowf.example
+[2026-03-28T21:30:43.310+0000] {subprocess.py:106} INFO - [0m21:30:43  Found 14 models, 3 sources, 522 macros
+[2026-03-28T21:30:43.311+0000] {subprocess.py:106} INFO - [0m21:30:43
+[2026-03-28T21:30:43.311+0000] {subprocess.py:106} INFO - [0m21:30:43  Concurrency: 1 threads (target='dev')
+[2026-03-28T21:30:43.312+0000] {subprocess.py:106} INFO - [0m21:30:43
+[2026-03-28T21:30:45.568+0000] {subprocess.py:106} INFO - [0m21:30:45  1 of 1 START sql incremental model PUBLIC_BRONZE.bronze_trans .................. [RUN]
+[2026-03-28T21:30:48.398+0000] {subprocess.py:106} INFO - [0m21:30:48  1 of 1 OK created sql incremental model PUBLIC_BRONZE.bronze_trans ............. [[32mSUCCESS 0[0m in 2.83s]
+[2026-03-28T21:30:48.623+0000] {subprocess.py:106} INFO - [0m21:30:48
+[2026-03-28T21:30:48.624+0000] {subprocess.py:106} INFO - [0m21:30:48  Finished running 1 incremental model in 0 hours 0 minutes and 5.31 seconds (5.31s).
+[2026-03-28T21:30:48.688+0000] {subprocess.py:106} INFO - [0m21:30:48
+[2026-03-28T21:30:48.689+0000] {subprocess.py:106} INFO - [0m21:30:48  [32mCompleted successfully[0m
+[2026-03-28T21:30:48.689+0000] {subprocess.py:106} INFO - [0m21:30:48
+[2026-03-28T21:30:48.689+0000] {subprocess.py:106} INFO - [0m21:30:48  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[2026-03-28T21:30:50.651+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-03-28T21:30:50.653+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-28T21:30:50.674+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=banking_01_bronze_layer, task_id=build_bronze_trans, run_id=scheduled__2026-03-28T21:00:00+00:00, execution_date=20260328T210000, start_date=20260328T213041, end_date=20260328T213050
+[2026-03-28T21:30:50.707+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-03-28T21:30:50.719+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-28T21:30:50.720+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

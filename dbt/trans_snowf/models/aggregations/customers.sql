@@ -6,8 +6,10 @@ with temp as (
 ),
 
 unpacked as (
-    select count(cust_id) as customers, country
+    select count(customer_id) as no_of_customers, country
     from temp 
     group by country
-    order by customers desc
+    order by no_of_customers desc
 )
+
+select * from unpacked

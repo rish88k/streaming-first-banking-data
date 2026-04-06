@@ -1,0 +1,60 @@
+[2026-04-04T05:25:18.128+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-04-04T05:25:18.148+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: banking_01_gold_layer.build_gold_acc manual__2026-04-04T05:25:04.443649+00:00 [queued]>
+[2026-04-04T05:25:18.152+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: banking_01_gold_layer.build_gold_acc manual__2026-04-04T05:25:04.443649+00:00 [queued]>
+[2026-04-04T05:25:18.152+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-04-04T05:25:18.159+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): build_gold_acc> on 2026-04-04 05:25:04.443649+00:00
+[2026-04-04T05:25:18.162+0000] {standard_task_runner.py:64} INFO - Started process 74 to run task
+[2026-04-04T05:25:18.163+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'banking_01_gold_layer', 'build_gold_acc', 'manual__2026-04-04T05:25:04.443649+00:00', '--job-id', '9661', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmpbq6oszko']
+[2026-04-04T05:25:18.164+0000] {standard_task_runner.py:91} INFO - Job 9661: Subtask build_gold_acc
+[2026-04-04T05:25:18.190+0000] {task_command.py:426} INFO - Running <TaskInstance: banking_01_gold_layer.build_gold_acc manual__2026-04-04T05:25:04.443649+00:00 [running]> on host c990dffe13ae
+[2026-04-04T05:25:18.233+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='risheek' AIRFLOW_CTX_DAG_ID='banking_01_gold_layer' AIRFLOW_CTX_TASK_ID='build_gold_acc' AIRFLOW_CTX_EXECUTION_DATE='2026-04-04T05:25:04.443649+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-04T05:25:04.443649+00:00'
+[2026-04-04T05:25:18.234+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-04-04T05:25:18.234+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-04-04T05:25:18.235+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt build --select gold_acc']
+[2026-04-04T05:25:18.238+0000] {subprocess.py:99} INFO - Output:
+[2026-04-04T05:25:19.414+0000] {subprocess.py:106} INFO - [0m05:25:19  Running with dbt=1.11.7
+[2026-04-04T05:25:19.916+0000] {subprocess.py:106} INFO - [0m05:25:19  Registered adapter: snowflake=1.11.3
+[2026-04-04T05:25:20.060+0000] {subprocess.py:106} INFO - [0m05:25:20  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-04-04T05:25:20.060+0000] {subprocess.py:106} INFO - There are 1 unused configuration paths:
+[2026-04-04T05:25:20.060+0000] {subprocess.py:106} INFO - - models.trans_snowf.example
+[2026-04-04T05:25:20.195+0000] {subprocess.py:106} INFO - [0m05:25:20  Found 14 models, 9 sources, 524 macros
+[2026-04-04T05:25:20.197+0000] {subprocess.py:106} INFO - [0m05:25:20
+[2026-04-04T05:25:20.197+0000] {subprocess.py:106} INFO - [0m05:25:20  Concurrency: 1 threads (target='dev')
+[2026-04-04T05:25:20.197+0000] {subprocess.py:106} INFO - [0m05:25:20
+[2026-04-04T05:25:21.781+0000] {subprocess.py:106} INFO - [0m05:25:21  1 of 1 START sql view model PUBLIC_GOLD.gold_acc ............................... [RUN]
+[2026-04-04T05:25:22.294+0000] {subprocess.py:106} INFO - [0m05:25:22  1 of 1 ERROR creating sql view model PUBLIC_GOLD.gold_acc ...................... [[31mERROR[0m in 0.50s]
+[2026-04-04T05:25:22.529+0000] {subprocess.py:106} INFO - [0m05:25:22
+[2026-04-04T05:25:22.531+0000] {subprocess.py:106} INFO - [0m05:25:22  Finished running 1 view model in 0 hours 0 minutes and 2.33 seconds (2.33s).
+[2026-04-04T05:25:22.587+0000] {subprocess.py:106} INFO - [0m05:25:22
+[2026-04-04T05:25:22.587+0000] {subprocess.py:106} INFO - [0m05:25:22  [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[2026-04-04T05:25:22.588+0000] {subprocess.py:106} INFO - [0m05:25:22
+[2026-04-04T05:25:22.589+0000] {subprocess.py:106} INFO - [0m05:25:22  [31mFailure in model gold_acc (models/marts/gold_acc.sql)[0m
+[2026-04-04T05:25:22.589+0000] {subprocess.py:106} INFO - [0m05:25:22    Database Error in model gold_acc (models/marts/gold_acc.sql)
+[2026-04-04T05:25:22.589+0000] {subprocess.py:106} INFO -   002003 (02000): SQL compilation error:
+[2026-04-04T05:25:22.589+0000] {subprocess.py:106} INFO -   Schema 'BANKING.PUBLIC_SILVER' does not exist or not authorized.
+[2026-04-04T05:25:22.590+0000] {subprocess.py:106} INFO -   compiled code at target/run/trans_snowf/models/marts/gold_acc.sql
+[2026-04-04T05:25:22.590+0000] {subprocess.py:106} INFO - [0m05:25:22
+[2026-04-04T05:25:22.590+0000] {subprocess.py:106} INFO - [0m05:25:22    compiled code at target/compiled/trans_snowf/models/marts/gold_acc.sql
+[2026-04-04T05:25:22.590+0000] {subprocess.py:106} INFO - [0m05:25:22
+[2026-04-04T05:25:22.591+0000] {subprocess.py:106} INFO - [0m05:25:22  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=1
+[2026-04-04T05:25:25.236+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-04-04T05:25:25.238+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-04-04T05:25:25.249+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/standard/operators/bash.py", line 233, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-04-04T05:25:25.254+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=banking_01_gold_layer, task_id=build_gold_acc, run_id=manual__2026-04-04T05:25:04.443649+00:00, execution_date=20260404T052504, start_date=20260404T052518, end_date=20260404T052525
+[2026-04-04T05:25:25.268+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 9661 for task build_gold_acc (Bash command failed. The command returned a non-zero exit code 1.; 74)
+[2026-04-04T05:25:25.279+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-04-04T05:25:25.290+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-04T05:25:25.291+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

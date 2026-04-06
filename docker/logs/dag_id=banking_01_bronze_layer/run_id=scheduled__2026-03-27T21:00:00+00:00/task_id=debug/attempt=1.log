@@ -1,0 +1,81 @@
+[2026-03-28T02:03:39.870+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-28T02:03:39.885+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: banking_01_bronze_layer.debug scheduled__2026-03-27T21:00:00+00:00 [queued]>
+[2026-03-28T02:03:39.888+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: banking_01_bronze_layer.debug scheduled__2026-03-27T21:00:00+00:00 [queued]>
+[2026-03-28T02:03:39.888+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-03-28T02:03:39.894+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): debug> on 2026-03-27 21:00:00+00:00
+[2026-03-28T02:03:39.897+0000] {standard_task_runner.py:64} INFO - Started process 43206 to run task
+[2026-03-28T02:03:39.898+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'banking_01_bronze_layer', 'debug', 'scheduled__2026-03-27T21:00:00+00:00', '--job-id', '5675', '--raw', '--subdir', 'DAGS_FOLDER/dbt.py', '--cfg-path', '/tmp/tmpcke54evt']
+[2026-03-28T02:03:39.899+0000] {standard_task_runner.py:91} INFO - Job 5675: Subtask debug
+[2026-03-28T02:03:39.923+0000] {task_command.py:426} INFO - Running <TaskInstance: banking_01_bronze_layer.debug scheduled__2026-03-27T21:00:00+00:00 [running]> on host c990dffe13ae
+[2026-03-28T02:03:39.966+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='risheek' AIRFLOW_CTX_DAG_ID='banking_01_bronze_layer' AIRFLOW_CTX_TASK_ID='debug' AIRFLOW_CTX_EXECUTION_DATE='2026-03-27T21:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-27T21:00:00+00:00'
+[2026-03-28T02:03:39.966+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-28T02:03:39.967+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-03-28T02:03:39.967+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt debug --profiles-dir /opt/***/dbt/trans_snowf']
+[2026-03-28T02:03:39.971+0000] {subprocess.py:99} INFO - Output:
+[2026-03-28T02:03:41.213+0000] {subprocess.py:106} INFO - [0m02:03:41  Running with dbt=1.11.7
+[2026-03-28T02:03:41.219+0000] {subprocess.py:106} INFO - [0m02:03:41  dbt version: 1.11.7
+[2026-03-28T02:03:41.220+0000] {subprocess.py:106} INFO - [0m02:03:41  python version: 3.12.4
+[2026-03-28T02:03:41.220+0000] {subprocess.py:106} INFO - [0m02:03:41  python path: /home/***/.local/bin/python
+[2026-03-28T02:03:41.220+0000] {subprocess.py:106} INFO - [0m02:03:41  os info: Linux-6.12.76-linuxkit-aarch64-with-glibc2.36
+[2026-03-28T02:03:41.651+0000] {subprocess.py:106} INFO - [0m02:03:41  Using profiles dir at /opt/***/dbt/trans_snowf
+[2026-03-28T02:03:41.652+0000] {subprocess.py:106} INFO - [0m02:03:41  Using profiles.yml file at /opt/***/dbt/trans_snowf/profiles.yml
+[2026-03-28T02:03:41.653+0000] {subprocess.py:106} INFO - [0m02:03:41  Using dbt_project.yml file at /opt/***/dbt/trans_snowf/dbt_project.yml
+[2026-03-28T02:03:41.653+0000] {subprocess.py:106} INFO - [0m02:03:41  adapter type: snowflake
+[2026-03-28T02:03:41.654+0000] {subprocess.py:106} INFO - [0m02:03:41  adapter version: 1.11.3
+[2026-03-28T02:03:41.711+0000] {subprocess.py:106} INFO - [0m02:03:41  Configuration:
+[2026-03-28T02:03:41.712+0000] {subprocess.py:106} INFO - [0m02:03:41    profiles.yml file [[32mOK found and valid[0m]
+[2026-03-28T02:03:41.712+0000] {subprocess.py:106} INFO - [0m02:03:41    dbt_project.yml file [[32mOK found and valid[0m]
+[2026-03-28T02:03:41.713+0000] {subprocess.py:106} INFO - [0m02:03:41  Required dependencies:
+[2026-03-28T02:03:41.714+0000] {subprocess.py:106} INFO - [0m02:03:41   - git [[31mERROR[0m]
+[2026-03-28T02:03:41.714+0000] {subprocess.py:106} INFO - 
+[2026-03-28T02:03:41.714+0000] {subprocess.py:106} INFO - [0m02:03:41  Connection:
+[2026-03-28T02:03:41.715+0000] {subprocess.py:106} INFO - [0m02:03:41    account: BBMCDSP-CT02489
+[2026-03-28T02:03:41.715+0000] {subprocess.py:106} INFO - [0m02:03:41    user: user123
+[2026-03-28T02:03:41.715+0000] {subprocess.py:106} INFO - [0m02:03:41    database: BANKING
+[2026-03-28T02:03:41.716+0000] {subprocess.py:106} INFO - [0m02:03:41    warehouse: COMPUTE_WH
+[2026-03-28T02:03:41.716+0000] {subprocess.py:106} INFO - [0m02:03:41    role: dbtadmin
+[2026-03-28T02:03:41.717+0000] {subprocess.py:106} INFO - [0m02:03:41    schema: PUBLIC
+[2026-03-28T02:03:41.717+0000] {subprocess.py:106} INFO - [0m02:03:41    authenticator: None
+[2026-03-28T02:03:41.717+0000] {subprocess.py:106} INFO - [0m02:03:41    oauth_client_id: None
+[2026-03-28T02:03:41.718+0000] {subprocess.py:106} INFO - [0m02:03:41    query_tag: None
+[2026-03-28T02:03:41.718+0000] {subprocess.py:106} INFO - [0m02:03:41    client_session_keep_alive: False
+[2026-03-28T02:03:41.718+0000] {subprocess.py:106} INFO - [0m02:03:41    host: None
+[2026-03-28T02:03:41.719+0000] {subprocess.py:106} INFO - [0m02:03:41    port: None
+[2026-03-28T02:03:41.719+0000] {subprocess.py:106} INFO - [0m02:03:41    proxy_host: None
+[2026-03-28T02:03:41.719+0000] {subprocess.py:106} INFO - [0m02:03:41    proxy_port: None
+[2026-03-28T02:03:41.720+0000] {subprocess.py:106} INFO - [0m02:03:41    protocol: None
+[2026-03-28T02:03:41.720+0000] {subprocess.py:106} INFO - [0m02:03:41    connect_retries: 1
+[2026-03-28T02:03:41.720+0000] {subprocess.py:106} INFO - [0m02:03:41    connect_timeout: None
+[2026-03-28T02:03:41.720+0000] {subprocess.py:106} INFO - [0m02:03:41    retry_on_database_errors: False
+[2026-03-28T02:03:41.721+0000] {subprocess.py:106} INFO - [0m02:03:41    retry_all: False
+[2026-03-28T02:03:41.721+0000] {subprocess.py:106} INFO - [0m02:03:41    insecure_mode: False
+[2026-03-28T02:03:41.721+0000] {subprocess.py:106} INFO - [0m02:03:41    reuse_connections: True
+[2026-03-28T02:03:41.722+0000] {subprocess.py:106} INFO - [0m02:03:41    s3_stage_vpce_dns_name: None
+[2026-03-28T02:03:41.723+0000] {subprocess.py:106} INFO - [0m02:03:41    platform_detection_timeout_seconds: 0.0
+[2026-03-28T02:03:41.723+0000] {subprocess.py:106} INFO - [0m02:03:41  Registered adapter: snowflake=1.11.3
+[2026-03-28T02:03:42.510+0000] {subprocess.py:106} INFO - [0m02:03:42    Connection test: [[32mOK connection ok[0m]
+[2026-03-28T02:03:42.512+0000] {subprocess.py:106} INFO - 
+[2026-03-28T02:03:42.515+0000] {subprocess.py:106} INFO - [0m02:03:42  [31m1 check failed:[0m
+[2026-03-28T02:03:42.516+0000] {subprocess.py:106} INFO - [0m02:03:42  Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+[2026-03-28T02:03:42.516+0000] {subprocess.py:106} INFO - 
+[2026-03-28T02:03:44.025+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-03-28T02:03:44.026+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-28T02:03:44.043+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/standard/operators/bash.py", line 233, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-28T02:03:44.046+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=banking_01_bronze_layer, task_id=debug, run_id=scheduled__2026-03-27T21:00:00+00:00, execution_date=20260327T210000, start_date=20260328T020339, end_date=20260328T020344
+[2026-03-28T02:03:44.056+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5675 for task debug (Bash command failed. The command returned a non-zero exit code 1.; 43206)
+[2026-03-28T02:03:44.102+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-03-28T02:03:44.123+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-28T02:03:44.123+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

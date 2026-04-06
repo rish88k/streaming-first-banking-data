@@ -10,7 +10,7 @@ with temp as (
 
 transformed as (
 
-    select count(transaction_id) as no_of_transactions ,
+    select count(transaction_id) as no_of_transactions,
     transaction_date
     from temp
     group by transaction_date

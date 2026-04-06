@@ -1,0 +1,71 @@
+[2026-03-27T20:35:24.478+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-27T20:35:24.501+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake_customers.copy_json_to_variant scheduled__2026-03-27T18:43:00+00:00 [queued]>
+[2026-03-27T20:35:24.505+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: transfer_from_minio_to_snowflake_customers.copy_json_to_variant scheduled__2026-03-27T18:43:00+00:00 [queued]>
+[2026-03-27T20:35:24.506+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-27T20:35:24.512+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): copy_json_to_variant> on 2026-03-27 18:43:00+00:00
+[2026-03-27T20:35:24.518+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'transfer_from_minio_to_snowflake_customers', 'copy_json_to_variant', 'scheduled__2026-03-27T18:43:00+00:00', '--job-id', '5581', '--raw', '--subdir', 'DAGS_FOLDER/transfer.py', '--cfg-path', '/tmp/tmpqtuhm3ox']
+[2026-03-27T20:35:24.521+0000] {standard_task_runner.py:91} INFO - Job 5581: Subtask copy_json_to_variant
+[2026-03-27T20:35:24.520+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=41229) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-27T20:35:24.521+0000] {standard_task_runner.py:64} INFO - Started process 41241 to run task
+[2026-03-27T20:35:24.565+0000] {task_command.py:426} INFO - Running <TaskInstance: transfer_from_minio_to_snowflake_customers.copy_json_to_variant scheduled__2026-03-27T18:43:00+00:00 [running]> on host c990dffe13ae
+[2026-03-27T20:35:24.750+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='transfer_from_minio_to_snowflake_customers' AIRFLOW_CTX_TASK_ID='copy_json_to_variant' AIRFLOW_CTX_EXECUTION_DATE='2026-03-27T18:43:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-27T18:43:00+00:00'
+[2026-03-27T20:35:24.750+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-27T20:35:24.751+0000] {sql.py:282} INFO - Executing: 
+            COPY INTO RAW_CUSTOMERS (raw_json)
+            FROM @incoming
+            FILE_FORMAT = (TYPE = 'JSON')
+            ON_ERROR = 'CONTINUE';
+        
+[2026-03-27T20:35:24.759+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-03-27T20:35:24.801+0000] {base.py:84} INFO - Using connection ID 'warehouse_id' for task execution.
+[2026-03-27T20:35:24.854+0000] {connection.py:613} INFO - Snowflake Connector for Python Version: 4.3.0, Python Version: 3.12.4, Platform: Linux-6.12.76-linuxkit-aarch64-with-glibc2.36
+[2026-03-27T20:35:24.855+0000] {connection.py:1709} INFO - Connecting to GLOBAL Snowflake domain
+[2026-03-27T20:35:27.791+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-27T20:35:27.794+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 288, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 404, in run
+    with closing(self.get_conn()) as conn:
+                 ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 300, in get_conn
+    conn = connector.connect(**conn_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/__init__.py", line 64, in Connect
+    return SnowflakeConnection(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 681, in __init__
+    self.connect(**kwargs)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1177, in connect
+    self.__open_connection()
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1616, in __open_connection
+    self.authenticate_with_retry(self.auth_class)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1952, in authenticate_with_retry
+    self._authenticate(auth_instance)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1984, in _authenticate
+    auth.authenticate(
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/auth/_auth.py", line 444, in authenticate
+    Error.errorhandler_wrapper(
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 298, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 361, in hand_to_other_handler
+    connection.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 229, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.DatabaseError: 250001 (08001): None: Failed to connect to DB: BBMCDSP-CT02489.snowflakecomputing.com:443. JWT token is invalid. [0f3136b8-be23-4f73-ad38-412a4ae80969]
+[2026-03-27T20:35:27.832+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=transfer_from_minio_to_snowflake_customers, task_id=copy_json_to_variant, run_id=scheduled__2026-03-27T18:43:00+00:00, execution_date=20260327T184300, start_date=20260327T203524, end_date=20260327T203527
+[2026-03-27T20:35:27.846+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5581 for task copy_json_to_variant (250001 (08001): None: Failed to connect to DB: BBMCDSP-CT02489.snowflakecomputing.com:443. JWT token is invalid. [0f3136b8-be23-4f73-ad38-412a4ae80969]; 41241)
+[2026-03-27T20:35:27.872+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-03-27T20:35:27.906+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-27T20:35:27.907+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

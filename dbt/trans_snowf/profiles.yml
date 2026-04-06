@@ -81,11 +81,11 @@ trans_snowf:
     dev:
       account: BBMCDSP-CT02489
       database: BANKING
-      private_key_path: /Users/rish88k/data_analysis/de_project/keys_/dbt_user_latest/rsa_key.p8
-      role: dbtuser
+      private_key_path: /opt/airflow/secrets/rsa_key.pem
+      role: dbtadmin
       schema: PUBLIC
       threads: 1
       type: snowflake
-      user: plumber
+      user: user123
       warehouse: COMPUTE_WH
   target: dev
